@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Medical Device Tax Deductions | MH Services LLC</title>
+<meta name="description" content="Own and operate revenue-generating medical equipment in an underserved cash-pay market — and claim 100% first-year bonus depreciation under §168(k). A real, owner-operated service business, live across six locations. Offered through MH Services LLC.">
+<link rel="canonical" href="https://mddeductions.com/">
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#0e2a47">
+
+<!-- Open Graph / social -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mddeductions.com/">
+<meta property="og:title" content="Medical Device Tax Deductions — Own It, Operate It, Deduct It">
+<meta property="og:description" content="A live, owner-operated medical-equipment service business in a high-demand cash-pay market, structured around permanent 100% bonus depreciation under §168(k).">
+<meta property="og:site_name" content="MH Services LLC">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Medical Device Tax Deductions — Own It, Operate It, Deduct It">
+<meta name="twitter:description" content="A live, owner-operated medical-equipment service business in a high-demand cash-pay market, structured around permanent 100% bonus depreciation under §168(k).">
+
+<!-- Inline SVG favicon — no extra request -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 34 34'%3E%3Crect width='34' height='34' rx='8' fill='%230e2a47'/%3E%3Ctext x='17' y='23' font-family='Arial,sans-serif' font-size='15' font-weight='700' fill='white' text-anchor='middle'%3EMH%3C/text%3E%3C/svg%3E">
+
+<!-- Refined type pairing, loaded async so it never blocks first paint -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Archivo:wght@500;600;700;800&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Archivo:wght@500;600;700;800&display=swap"></noscript>
+<style>
+  :root{
+    --navy:#0e2a47; --navy2:#143a63; --teal:#0e8f8a; --teal-light:#e6f4f3;
+    --gold:#c9a227; --ink:#1d2733; --muted:#5b6b7c; --bg:#f7f9fb; --line:#e3e9ef;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{font-family:Georgia,'Times New Roman',serif;color:var(--ink);background:#fff;line-height:1.65;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+  h1,h2,h3{font-family:'Fraunces','Georgia',serif;letter-spacing:-.01em}
+  h4,.sans{font-family:'Archivo','Segoe UI',system-ui,-apple-system,Arial,sans-serif}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+
+  /* Header */
+  header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.96);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+  .logo-mark{width:34px;height:34px;border-radius:8px;background:linear-gradient(135deg,var(--navy),var(--teal));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-family:Arial,sans-serif;font-size:15px}
+  .logo-name{font-family:'Archivo','Segoe UI',Arial,sans-serif;font-weight:700;color:var(--navy);font-size:16px;letter-spacing:.2px;line-height:1.2}
+  .logo-sub{display:block;font-family:'Archivo','Segoe UI',Arial,sans-serif;font-weight:600;font-size:10.5px;letter-spacing:.6px;color:var(--muted);text-transform:uppercase}
+  nav ul{display:flex;gap:26px;list-style:none}
+  nav a{font-family:'Archivo','Segoe UI',Arial,sans-serif;font-size:14px;color:var(--muted);text-decoration:none;font-weight:600}
+  nav a:hover{color:var(--teal)}
+  .btn{display:inline-block;font-family:'Archivo','Segoe UI',Arial,sans-serif;font-weight:700;font-size:15px;padding:12px 26px;border-radius:8px;text-decoration:none;cursor:pointer;border:none;transition:transform .15s,box-shadow .15s}
+  .btn-primary{background:var(--teal);color:#fff}
+  .btn-primary:hover{transform:translateY(-1px);box-shadow:0 6px 18px rgba(14,143,138,.35)}
+  .btn-ghost{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.55)}
+  .btn-ghost:hover{border-color:#fff}
+  .nav .btn{padding:9px 18px;font-size:13.5px}
+  /* Mobile nav toggle (hidden on desktop) */
+  .nav-toggle{display:none;flex-direction:column;justify-content:center;gap:5px;width:44px;height:44px;border:none;background:transparent;cursor:pointer;padding:10px}
+  .nav-toggle span{display:block;height:2px;width:100%;background:var(--navy);border-radius:2px;transition:transform .25s,opacity .2s}
+  header.menu-open .nav-toggle span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  header.menu-open .nav-toggle span:nth-child(2){opacity:0}
+  header.menu-open .nav-toggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  .nav-cta{display:none}
+  @media(max-width:860px){
+    nav#primaryNav{position:absolute;top:64px;left:0;right:0;background:#fff;border-bottom:1px solid var(--line);box-shadow:0 18px 40px rgba(14,42,71,.10);
+      max-height:0;overflow:hidden;transition:max-height .32s ease;visibility:hidden}
+    header.menu-open nav#primaryNav{max-height:80vh;overflow-y:auto;visibility:visible}
+    nav#primaryNav ul{display:block;gap:0;padding:6px 0}
+    nav#primaryNav li{border-bottom:1px solid var(--line)}
+    nav#primaryNav li:last-child{border-bottom:none}
+    nav#primaryNav a{display:block;padding:15px 24px;font-size:15.5px}
+    .nav-cta{display:block;padding:14px 24px 18px}
+    .nav-cta .btn{display:block;text-align:center;width:100%}
+    .nav-desktop-cta{display:none}
+    .nav-toggle{display:flex}
+  }
+
+  /* Hero */
+  .hero{background:linear-gradient(160deg,var(--navy) 0%,var(--navy2) 55%,#0d4a5e 100%);color:#fff;padding:88px 0 72px}
+  .hero .wrap{display:grid;grid-template-columns:1.25fr .9fr;gap:48px;align-items:center}
+  .eyebrow{font-family:'Archivo','Segoe UI',Arial,sans-serif;font-size:12.5px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:18px}
+  .hero h1{font-size:42px;line-height:1.15;font-weight:800;margin-bottom:20px}
+  .hero h1 em{color:#7fd6d2;font-style:normal}
+  .hero p{font-size:18px;color:#cfdce8;margin-bottom:30px;max-width:560px}
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap}
+  .hero-card{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);border-radius:14px;padding:28px}
+  .hero-card h3{font-size:14px;letter-spacing:1.5px;text-transform:uppercase;color:#9fc1d8;margin-bottom:18px}
+  .stat{padding:14px 0;border-bottom:1px solid rgba(255,255,255,.12)}
+  .stat:last-child{border-bottom:none}
+  .stat b{display:block;font-family:'Archivo','Segoe UI',Arial,sans-serif;font-size:26px;color:#fff}
+  .stat span{font-size:14px;color:#b8cbdb}
+  @media(max-width:860px){.hero .wrap{grid-template-columns:1fr}.hero h1{font-size:32px}}
+
+  /* Sections */
+  section{padding:76px 0}
+  section.alt{background:var(--bg)}
+  .sec-head{max-width:680px;margin-bottom:44px}
+  .sec-head .eyebrow{color:var(--teal)}
+  .sec-head h2{font-size:32px;color:var(--navy);line-height:1.2;margin-bottom:14px}
+  .sec-head p{color:var(--muted);font-size:17px}
+
+  /* Steps */
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+  .step{background:#fff;border:1px solid var(--line);border-radius:12px;padding:26px 22px;position:relative}
+  .step .n{font-family:'Archivo','Segoe UI',Arial,sans-serif;font-weight:800;font-size:13px;color:var(--teal);letter-spacing:1px;margin-bottom:10px}
+  .step h3{font-size:17px;color:var(--navy);margin-bottom:10px}
+  .step p{font-size:14.5px;color:var(--muted)}
+  @media(max-width:900px){.steps{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:560px){.steps{grid-template-columns:1fr}}
+
+  /* Operator model */
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:start}
+  @media(max-width:860px){.split{grid-template-columns:1fr}}
+  .check-list{list-style:none;margin-top:8px}
+  .check-list li{padding:13px 0 13px 38px;position:relative;border-bottom:1px solid var(--line);font-size:16px}
+  .check-list li:last-child{border-bottom:none}
+  .check-list li::before{content:"";position:absolute;left:0;top:16px;width:22px;height:22px;border-radius:50%;background:var(--teal-light)}
+  .check-list li::after{content:"✓";position:absolute;left:5px;top:13px;color:var(--teal);font-weight:700;font-family:Arial,sans-serif;font-size:14px}
+  .contrast-card{border-radius:12px;padding:26px;margin-bottom:18px}
+  .contrast-card h4{font-size:16px;margin-bottom:10px}
+  .contrast-card p{font-size:14.5px}
+  .card-bad{background:#fdf2f0;border:1px solid #f0d4cd}
+  .card-bad h4{color:#9c3a22}
+  .card-bad p{color:#7c5247}
+  .card-good{background:var(--teal-light);border:1px solid #c4e4e2}
+  .card-good h4{color:#0b6e6a}
+  .card-good p{color:#33605d}
+
+  /* Tax framework table */
+  .tax-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  @media(max-width:860px){.tax-grid{grid-template-columns:1fr}}
+  .tax-card{background:#fff;border:1px solid var(--line);border-top:4px solid var(--teal);border-radius:12px;padding:26px}
+  .tax-card h3{font-size:17px;color:var(--navy);margin-bottom:12px}
+  .tax-card p{font-size:14.5px;color:var(--muted)}
+  .tax-card .tag{display:inline-block;font-family:'Archivo','Segoe UI',Arial,sans-serif;font-size:11.5px;font-weight:700;letter-spacing:1px;color:var(--teal);background:var(--teal-light);border-radius:20px;padding:4px 12px;margin-bottom:14px}
+
+  /* Example table */
+  table{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden;font-size:15px}
+  th,td{padding:13px 18px;text-align:left;border-bottom:1px solid var(--line)}
+  th{background:var(--navy);color:#fff;font-family:'Archivo','Segoe UI',Arial,sans-serif;font-size:13.5px;letter-spacing:.5px}
+  tr:last-child td{border-bottom:none;font-weight:700;color:var(--navy)}
+  .note{font-size:13.5px;color:var(--muted);margin-top:14px;font-style:italic}
+  .table-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:12px}
+  @media(max-width:560px){
+    .table-scroll table{min-width:440px}
+    .res-table{font-size:13.5px}
+    .res-table td{padding:8px 4px}
+  }
+
+  /* Calculator */
+  .calc{display:grid;grid-template-columns:.9fr 1.1fr;gap:28px;align-items:start}
+  @media(max-width:860px){.calc{grid-template-columns:1fr}}
+  .calc-panel{background:#fff;border:1px solid var(--line);border-radius:14px;padding:28px}
+  .calc-panel h3{font-size:15px;letter-spacing:1.2px;text-transform:uppercase;color:var(--teal);margin-bottom:20px;font-family:'Archivo','Segoe UI',Arial,sans-serif}
+  .calc-field{margin-bottom:18px}
+  .calc-field label{display:flex;justify-content:space-between;font-family:'Archivo','Segoe UI',Arial,sans-serif;font-size:13.5px;font-weight:600;color:var(--ink);margin-bottom:6px}
+  .calc-field label output{color:var(--teal);font-weight:700}
+  .calc-field input[type=range]{width:100%;accent-color:var(--teal);padding:0;background:none;border:none}
+  .calc-field input[type=number]{width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:8px;background:#fff;color:var(--ink);font-size:15px}
+  .calc-field input[type=number]:focus{outline:2px solid var(--teal)}
+  .calc-grid2{display:grid;grid-template-columns:1fr 1fr;gap:0 16px}
+  .calc-fixed{font-family:'Archivo','Segoe UI',Arial,sans-serif;font-size:12.5px;color:var(--muted);background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:12px 14px;margin-top:6px;line-height:1.6}
+  .res-table{width:100%;border-collapse:collapse;font-size:14.5px}
+  .res-table td{padding:9px 6px;border-bottom:1px solid var(--line)}
+  .res-table td:nth-child(2),.res-table td:nth-child(3){text-align:right;font-family:'Archivo','Segoe UI',Arial,sans-serif;white-space:nowrap}
+  .res-table .head td{font-family:'Archivo','Segoe UI',Arial,sans-serif;font-size:11.5px;letter-spacing:1px;text-transform:uppercase;color:var(--muted);border-bottom:2px solid var(--navy)}
+  .res-table .sub td{color:var(--muted)}
+  .res-table .strong td{font-weight:700;color:var(--navy)}
+  .res-owner{margin-top:18px;background:var(--teal-light);border:1px solid #c4e4e2;border-radius:10px;padding:18px 20px;display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap}
+  .res-owner span{font-family:'Archivo','Segoe UI',Arial,sans-serif;font-size:13.5px;font-weight:600;color:#0b6e6a}
+  .res-owner b{font-family:'Archivo','Segoe UI',Arial,sans-serif;font-size:24px;color:#0b6e6a}
+  .res-tax{margin-top:12px;background:#f4f1e6;border:1px solid #e2d9b8;border-radius:10px;padding:14px 20px;font-family:'Archivo','Segoe UI',Arial,sans-serif;font-size:13.5px;color:#6e5f3c}
+
+  /* FAQ */
+  .faq-item{border:1px solid var(--line);border-radius:10px;margin-bottom:12px;background:#fff;overflow:hidden}
+  .faq-q{width:100%;text-align:left;background:none;border:none;padding:18px 22px;font-family:'Archivo','Segoe UI',Arial,sans-serif;font-weight:700;font-size:15.5px;color:var(--navy);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px}
+  .faq-q::after{content:"+";font-size:22px;color:var(--teal);flex-shrink:0;transition:transform .2s}
+  .faq-item.open .faq-q::after{transform:rotate(45deg)}
+  .faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease;padding:0 22px}
+  .faq-item.open .faq-a{max-height:300px;padding-bottom:18px}
+  .faq-a p{font-size:15px;color:var(--muted)}
+
+  /* Contact */
+  .contact{background:linear-gradient(160deg,var(--navy),#0d4a5e);color:#fff}
+  .contact .sec-head h2{color:#fff}
+  .contact .sec-head p{color:#bed0df}
+  .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;max-width:760px}
+  .form-grid .full{grid-column:1/-1}
+  @media(max-width:680px){.form-grid{grid-template-columns:1fr}}
+  label{display:block;font-family:'Archivo','Segoe UI',Arial,sans-serif;font-size:13px;font-weight:600;letter-spacing:.5px;margin-bottom:7px;color:#bed0df}
+  input,select,textarea{width:100%;padding:13px 14px;border-radius:8px;border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.08);color:#fff;font-size:15px;font-family:'Archivo','Segoe UI',Arial,sans-serif}
+  input::placeholder,textarea::placeholder{color:#8aa3b8}
+  select{appearance:none}
+  select option{color:var(--ink)}
+  input:focus,select:focus,textarea:focus{outline:2px solid var(--teal);border-color:transparent}
+  .form-success{display:none;background:rgba(14,143,138,.18);border:1px solid var(--teal);border-radius:10px;padding:18px 22px;margin-top:20px;font-family:'Archivo','Segoe UI',Arial,sans-serif;font-size:15px;max-width:760px}
+  .form-error{display:none;background:rgba(156,58,34,.15);border:1px solid #c97a64;border-radius:10px;padding:16px 20px;margin-top:18px;font-family:'Archivo','Segoe UI',Arial,sans-serif;font-size:14.5px;max-width:760px;color:#ffd9cd}
+
+  /* Disclaimer + footer */
+  .disclaimer{background:#fbf7ec;border-top:1px solid #ecdfc0;border-bottom:1px solid #ecdfc0;padding:34px 0}
+  .disclaimer p{font-size:13px;color:#6e5f3c;max-width:980px}
+  .disclaimer b{display:block;font-family:'Archivo','Segoe UI',Arial,sans-serif;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:10px;color:#8a7434}
+  footer{background:var(--navy);color:#8aa3b8;padding:34px 0;font-family:'Archivo','Segoe UI',Arial,sans-serif;font-size:13.5px}
+  footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="#top">
+      <span class="logo-mark">MH</span>
+      <span class="logo-name">Medical Device Tax Deductions<span class="logo-sub">Offered through MH Services LLC</span></span>
+    </a>
+    <nav id="primaryNav"><ul>
+      <li><a href="#how">How It Works</a></li>
+      <li><a href="#model">The Operating Model</a></li>
+      <li><a href="#tax">Tax Framework</a></li>
+      <li><a href="#example">Example</a></li>
+      <li><a href="#calculator">EBOO Calculator</a></li>
+      <li><a href="#calculator-plasma">Plasmapheresis Calculator</a></li>
+      <li><a href="#scenarios">Tax Scenarios</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li class="nav-cta"><a class="btn btn-primary" href="#contact">Request a Consultation</a></li>
+    </ul></nav>
+    <a class="btn btn-primary nav-desktop-cta" href="#contact">Request a Consultation</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-controls="primaryNav" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow">Medical Equipment Ownership &middot; Revenue Share &middot; §168(k)</div>
+      <h1>Own the equipment. Run the operation. <em>Deduct 100% in year one.</em></h1>
+      <p>We help you acquire and operate revenue-generating medical equipment in a fast-growing, cash-pay corner of the wellness market — high-demand therapies that most insurance won't touch, like Plasmapheresis, EBOO, EBO2/EBO3, and Traumatic Brain Injury protocols. Your entity employs the nurses and technicians, manages scheduling and utilization, and handles the billing. It's a real operating business, already running across six locations — built deliberately around the permanent 100% bonus depreciation rules of §168(k).</p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="#contact">Request a Consultation</a>
+        <a class="btn btn-ghost" href="#how">See How It Works</a>
+      </div>
+    </div>
+    <div class="hero-card">
+      <h3>Why This Model</h3>
+      <div class="stat"><b>100%</b><span>First-year bonus depreciation under §168(k) — made permanent for equipment acquired and placed in service after Jan 19, 2025</span></div>
+      <div class="stat"><b>Six locations live</b><span>An operating business with nurses, technicians, scheduling, and billing — already producing revenue, not a paper deal</span></div>
+      <div class="stat"><b>Active, not passive</b><span>Built for owners who materially participate, so the deduction works against active income</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="how">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">How It Works</div>
+      <h2>From acquisition to revenue share in four steps</h2>
+      <p>This is an operating service business — not a passive equipment lease. That single distinction drives both the economics and the tax treatment, and it's what we build the whole structure around.</p>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="n">STEP 01</div><h3>Acquire the equipment</h3><p>Your owner entity buys the medical equipment outright at fair market price — cash or recourse financing, in an arm's-length deal with an unrelated seller. You hold real title and real risk.</p></div>
+      <div class="step"><div class="n">STEP 02</div><h3>Place it in service</h3><p>The equipment is installed and made operational at a treatment location before year-end, fully documented from delivery through acceptance testing and the first patient — the trigger for first-year depreciation.</p></div>
+      <div class="step"><div class="n">STEP 03</div><h3>Operate it as a business</h3><p>Your entity staffs the nurses and technicians, manages scheduling, throughput, and maintenance, and performs the billing for every treatment. You're running a service business, not collecting rent.</p></div>
+      <div class="step"><div class="n">STEP 04</div><h3>Share the revenue</h3><p>Income arrives as your negotiated share of the revenue the equipment generates in a market with strong, underserved demand. You carry genuine ownership risk — utilization, maintenance, obsolescence — and keep the genuine upside.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="model">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">The Operating Model</div>
+      <h2>Why the owner entity does the work</h2>
+      <p>A bare equipment lease is presumptively passive under §469 — its losses generally can't offset active income, no matter how large the deduction. Our model is built the other way: real services, real staff, real billing. That's not window dressing; it's the legal and economic engine.</p>
+    </div>
+    <div class="split">
+      <div>
+        <div class="contrast-card card-bad">
+          <h4>The passive trap: a bare equipment lease</h4>
+          <p>Hand over a machine, collect a check, provide no services. The activity is per se a rental — the year-one depreciation loss suspends instead of offsetting practice income or wages, and §179 is barred for noncorporate lessors. The deduction is real but stranded.</p>
+        </div>
+        <div class="contrast-card card-good">
+          <h4>The operating model: equipment + significant services</h4>
+          <p>When substantial personal services accompany the equipment and the owner materially participates, the activity steps outside the rental box — so the loss is available against other active income, subject to the at-risk and excess-business-loss rules. The deduction works because the business is real.</p>
+        </div>
+      </div>
+      <div>
+        <ul class="check-list">
+          <li><b>Staffs the clinical team</b> — nurses and technicians are on your entity's payroll or under its service contracts, delivering the treatment</li>
+          <li><b>Manages utilization</b> — scheduling, throughput, uptime, and maintenance are your entity's job, with reporting that proves it</li>
+          <li><b>Performs the billing</b> — your entity bills every treatment and administers collections directly</li>
+          <li><b>Documents participation</b> — contemporaneous time logs, service agreements, and utilization records support material participation under §469</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="tax">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Tax Framework</div>
+      <h2>Built around the three gates on loss usability</h2>
+      <p>The deduction is the easy part. Whether the loss is usable depends on three statutory tests — and our structure is designed to address each one.</p>
+    </div>
+    <div class="tax-grid">
+      <div class="tax-card"><span class="tag">§469</span><h3>Passive activity rules</h3><p>The services layer — staffing, utilization management, billing — is what moves the activity out of the per se rental box. Owners then materially participate under one of the seven §469 tests, with contemporaneous documentation.</p></div>
+      <div class="tax-card"><span class="tag">§465</span><h3>At-risk rules</h3><p>Deductions are limited to amounts genuinely at risk. Placements are funded with cash or recourse debt from unrelated lenders — no nonrecourse seller paper, no guaranteed-return side letters.</p></div>
+      <div class="tax-card"><span class="tag">§461(l)</span><h3>Excess business loss cap</h3><p>For 2026, net business losses offset nonbusiness income up to $256,000 (single) / $512,000 (joint); the excess carries forward as an NOL. We model the cap before sizing any acquisition.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="example">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Illustration</div>
+      <h2>What a placement can look like</h2>
+      <p>A simplified, hypothetical 2026 example for a joint filer operating through the active model. Outcomes vary materially with individual facts.</p>
+    </div>
+    <div class="table-scroll"><table>
+      <tr><th>Item</th><th>Amount / Result</th></tr>
+      <tr><td>Equipment acquired &amp; placed in service (2026)</td><td>$2,000,000</td></tr>
+      <tr><td>§168(k) bonus depreciation (100%)</td><td>($2,000,000)</td></tr>
+      <tr><td>Year-one revenue share</td><td>$300,000</td></tr>
+      <tr><td>Operating costs (staff, insurance, maintenance)</td><td>($180,000)</td></tr>
+      <tr><td>Net year-one activity loss</td><td>($1,880,000)</td></tr>
+      <tr><td>Current-year offset against other income (§461(l) cap, joint)</td><td>Up to $512,000 — remainder carries forward as an NOL against future income, including ongoing revenue share</td></tr>
+    </table></div>
+    <p class="note">Hypothetical illustration only — not a projection or guarantee. Assumes active (nonpassive) characterization, full at-risk basis, and material participation, each of which depends on facts and documentation. Depreciation is a deferral: §1245 recapture applies on exit, and many states do not conform to federal bonus depreciation.</p>
+  </div>
+</section>
+
+<section id="calculator">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Revenue Calculator for EBOO Treatment</div>
+      <h2>Model an EBOO placement with your own numbers</h2>
+      <p>Adjust price and volume to see how revenue flows through cost of goods, debt service, the 50% medical-office share, and the 30% marketing allocation. Average treatment cost for EBOO is $1,250–$1,500. Exclusive equipment cost is $400,000.00.</p>
+    </div>
+    <div class="calc">
+      <div class="calc-panel">
+        <h3>Inputs</h3>
+        <div class="calc-field">
+          <label for="cPrice">Revenue per treatment <output id="cPriceOut">$1,375</output></label>
+          <input type="range" id="cPrice" min="1250" max="1500" step="5" value="1375">
+        </div>
+        <div class="calc-field">
+          <label for="cVol">Treatments per month <output id="cVolOut">43</output></label>
+          <input type="range" id="cVol" min="5" max="150" step="1" value="43">
+          <div class="calc-fixed" style="margin-top:8px">Default of 43/month ≈ 2 treatments/day, 5 days/week (520 treatments/year ÷ 12 months)</div>
+        </div>
+        <div class="calc-grid2">
+          <div class="calc-field"><label for="cCogs">COGS / treatment ($)</label><input type="number" id="cCogs" value="300" min="0" step="10"></div>
+          <div class="calc-field"><label for="cCost">Equipment cost ($)</label><input type="number" id="cCost" value="400000" min="0" step="10000"></div>
+          <div class="calc-field"><label for="cDown">Down payment ($)</label><input type="number" id="cDown" value="50000" min="0" step="5000"></div>
+          <div class="calc-field"><label for="cRate">Interest rate (%)</label><input type="number" id="cRate" value="4" min="0" max="20" step="0.25"></div>
+          <div class="calc-field"><label for="cTerm">Term (years)</label><input type="number" id="cTerm" value="10" min="1" max="25" step="1"></div>
+        </div>
+        <div class="calc-fixed">
+          <b>Profit splits (of net profit = revenue − COGS):</b><br>
+          Medical office revenue share: 50% &nbsp;•&nbsp; Marketing: 30% &nbsp;•&nbsp; Owner entity: 20%, from which the owner pays debt service
+        </div>
+      </div>
+      <div class="calc-panel">
+        <h3>Results</h3>
+        <table class="res-table">
+          <tr class="head"><td>Line item</td><td>Monthly</td><td>Annual</td></tr>
+          <tr><td>Treatment revenue</td><td id="rRevM"></td><td id="rRevY"></td></tr>
+          <tr class="sub"><td>− Cost of goods sold</td><td id="rCogsM"></td><td id="rCogsY"></td></tr>
+          <tr class="strong"><td>Net profit (revenue − COGS)</td><td id="rNetM"></td><td id="rNetY"></td></tr>
+          <tr class="sub"><td>− Medical office share (50%)</td><td id="rOfficeM"></td><td id="rOfficeY"></td></tr>
+          <tr class="sub"><td>− Marketing (30%)</td><td id="rMktM"></td><td id="rMktY"></td></tr>
+          <tr><td>Owner entity share (20%)</td><td id="rOwnShM"></td><td id="rOwnShY"></td></tr>
+          <tr class="sub"><td>− Debt service (P&amp;I on <span id="rFin"></span>)</td><td id="rDebtM"></td><td id="rDebtY"></td></tr>
+        </table>
+        <div class="res-owner"><span>Owner entity cash flow (20% of net profit − debt service)</span><b id="rOwnerY"></b></div>
+        <div class="res-tax">Year-one §168(k) deduction on this equipment: <b id="rBonus"></b> (100% of cost basis, including the financed portion) — usability subject to the §469, §465, and §461(l) rules discussed above. Break-even volume at these inputs: <b id="rBE"></b> treatments/month.</div>
+        <p class="note">Hypothetical model for illustration only — not a projection, guarantee, or offer. Actual reimbursement, utilization, costs, and tax outcomes vary.</p>
+      </div>
+    </div>
+    <div class="calc-panel" style="margin-top:28px">
+      <h3>Monthly cash waterfall — 3 treatments/day scenario (65/month)</h3>
+      <div id="waterfall"></div>
+      <p class="note">Uses the price, COGS, and financing inputs above with volume fixed at 3 treatments/day, 5 days/week (≈65/month). Figures are monthly.</p>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="calculator-plasma">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Revenue Calculator for Plasmapheresis Treatment</div>
+      <h2>Model a Plasmapheresis placement with your own numbers</h2>
+      <p>Adjust price and volume to see how revenue flows through cost of goods, debt service, the 50% medical-office share, and the 30% marketing allocation. Plasmapheresis revenue per treatment typically ranges from $4,500 to $10,000. Exclusive equipment cost is $1,200,000.</p>
+    </div>
+    <div class="calc">
+      <div class="calc-panel">
+        <h3>Inputs</h3>
+        <div class="calc-field">
+          <label for="pPrice">Revenue per treatment <output id="pPriceOut">$7,000</output></label>
+          <input type="range" id="pPrice" min="4500" max="10000" step="50" value="7000">
+        </div>
+        <div class="calc-field">
+          <label for="pVol">Treatments per month <output id="pVolOut">43</output></label>
+          <input type="range" id="pVol" min="5" max="150" step="1" value="43">
+          <div class="calc-fixed" style="margin-top:8px">Default of 43/month ≈ 2 treatments/day, 5 days/week (520 treatments/year ÷ 12 months)</div>
+        </div>
+        <div class="calc-grid2">
+          <div class="calc-field"><label for="pCogs">COGS / treatment ($)</label><input type="number" id="pCogs" value="1500" min="0" step="10"></div>
+          <div class="calc-field"><label for="pCost">Equipment cost ($)</label><input type="number" id="pCost" value="1200000" min="0" step="10000"></div>
+          <div class="calc-field"><label for="pDown">Down payment ($)</label><input type="number" id="pDown" value="150000" min="0" step="5000"></div>
+          <div class="calc-field"><label for="pRate">Interest rate (%)</label><input type="number" id="pRate" value="4" min="0" max="20" step="0.25"></div>
+          <div class="calc-field"><label for="pTerm">Term (years)</label><input type="number" id="pTerm" value="10" min="1" max="25" step="1"></div>
+        </div>
+        <div class="calc-fixed">
+          <b>Profit splits (of net profit = revenue − COGS):</b><br>
+          Medical office revenue share: 50% &nbsp;•&nbsp; Marketing: 30% &nbsp;•&nbsp; Owner entity: 20%, from which the owner pays debt service
+        </div>
+      </div>
+      <div class="calc-panel">
+        <h3>Results</h3>
+        <table class="res-table">
+          <tr class="head"><td>Line item</td><td>Monthly</td><td>Annual</td></tr>
+          <tr><td>Treatment revenue</td><td id="prRevM"></td><td id="prRevY"></td></tr>
+          <tr class="sub"><td>− Cost of goods sold</td><td id="prCogsM"></td><td id="prCogsY"></td></tr>
+          <tr class="strong"><td>Net profit (revenue − COGS)</td><td id="prNetM"></td><td id="prNetY"></td></tr>
+          <tr class="sub"><td>− Medical office share (50%)</td><td id="prOfficeM"></td><td id="prOfficeY"></td></tr>
+          <tr class="sub"><td>− Marketing (30%)</td><td id="prMktM"></td><td id="prMktY"></td></tr>
+          <tr><td>Owner entity share (20%)</td><td id="prOwnShM"></td><td id="prOwnShY"></td></tr>
+          <tr class="sub"><td>− Debt service (P&amp;I on <span id="prFin"></span>)</td><td id="prDebtM"></td><td id="prDebtY"></td></tr>
+        </table>
+        <div class="res-owner"><span>Owner entity cash flow (20% of net profit − debt service)</span><b id="prOwnerY"></b></div>
+        <div class="res-tax">Year-one §168(k) deduction on this equipment: <b id="prBonus"></b> (100% of cost basis, including the financed portion) — usability subject to the §469, §465, and §461(l) rules discussed above. Break-even volume at these inputs: <b id="prBE"></b> treatments/month.</div>
+        <p class="note">Hypothetical model for illustration only — not a projection, guarantee, or offer. Actual reimbursement, utilization, costs, and tax outcomes vary.</p>
+      </div>
+    </div>
+    <div class="calc-panel" style="margin-top:28px">
+      <h3>Monthly cash waterfall — 2 treatments/day scenario (40/month)</h3>
+      <div id="pWaterfall"></div>
+      <p class="note">Uses the price, COGS, and financing inputs above with volume fixed at ≈2 treatments/day, 5 days/week (≈40/month). Figures are monthly.</p>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="scenarios">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Federal Tax Savings Scenarios</div>
+      <h2>What the deduction can be worth — by taxpayer profile</h2>
+      <p>Two illustrative 2026 federal scenarios comparing single and married-filing-jointly outcomes, applying the §461(l) excess business loss limitation. Federal income tax only, using 2026 brackets and standard deduction (Rev. Proc. 2025-32).</p>
+    </div>
+
+    <div class="calc-panel" style="margin-bottom:28px">
+      <h3>Scenario 1 — W-2 wages / Roth conversion income</h3>
+      <p style="font-size:14.5px;color:var(--muted);margin-bottom:16px">Wages and Roth conversion income are <b>nonbusiness</b> income, so §461(l) caps how much of the device loss can offset them in year one ($256,000 single / $512,000 joint for 2026). The disallowed portion isn't lost — it carries forward as an NOL.</p>
+      <div class="calc-grid2" style="max-width:520px">
+        <div class="calc-field"><label for="s1Income">W-2 + Roth conversion income ($)</label><input type="number" id="s1Income" value="512000" min="0" step="1000"></div>
+        <div class="calc-field"><label for="s1Dev">Devices purchased ($400,000 each)</label><input type="number" id="s1Dev" value="1" min="1" max="5" step="1"></div>
+      </div>
+      <table class="res-table">
+        <tr class="head"><td>Line item</td><td>Single</td><td>Married Filing Jointly</td></tr>
+        <tr><td>Income (W-2 + Roth conversion)</td><td id="s1IncS"></td><td id="s1IncJ"></td></tr>
+        <tr class="sub"><td>Year-one §168(k) device loss</td><td id="s1LossS"></td><td id="s1LossJ"></td></tr>
+        <tr><td>Loss usable in year one (§461(l) cap)</td><td id="s1UseS"></td><td id="s1UseJ"></td></tr>
+        <tr class="sub"><td>Carried forward as NOL</td><td id="s1CarryS"></td><td id="s1CarryJ"></td></tr>
+        <tr class="sub"><td>Federal tax without strategy</td><td id="s1TaxBS"></td><td id="s1TaxBJ"></td></tr>
+        <tr class="sub"><td>Federal tax with strategy</td><td id="s1TaxAS"></td><td id="s1TaxAJ"></td></tr>
+        <tr class="strong"><td>Year-one federal tax savings</td><td id="s1SavS"></td><td id="s1SavJ"></td></tr>
+        <tr><td>Effective savings rate on usable loss</td><td id="s1RateS"></td><td id="s1RateJ"></td></tr>
+        <tr><td>Tax savings vs. cash down payment</td><td id="s1CashS"></td><td id="s1CashJ"></td></tr>
+        <tr class="strong"><td>Net year-one benefit (savings − down payment)</td><td id="s1NetS"></td><td id="s1NetJ"></td></tr>
+      </table>
+      <div class="res-tax"><b>Critical condition:</b> this outcome requires the activity to be <b>nonpassive</b> — the owner materially participates in a service business, not a bare lease. A passive owner's loss offsets only passive income and produces <b>$0</b> of current savings against wages or Roth conversions. The §461(l) carryforward retains value: the NOL offsets future income, including ongoing revenue share.</div>
+    </div>
+
+    <div class="calc-panel">
+      <h3>Scenario 2 — Business owner with pass-through business income</h3>
+      <p style="font-size:14.5px;color:var(--muted);margin-bottom:16px">Device losses first offset other <b>business</b> income without any §461(l) cap — the limitation only applies to losses claimed against nonbusiness income. A business owner with $1.2M of business income absorbing a $1.2M three-device deduction faces no EBL limit at all.</p>
+      <div class="calc-grid2" style="max-width:520px">
+        <div class="calc-field"><label for="s2Income">Business income ($)</label><input type="number" id="s2Income" value="1200000" min="0" step="10000"></div>
+        <div class="calc-field"><label for="s2Dev">Devices purchased ($400,000 each)</label><input type="number" id="s2Dev" value="3" min="1" max="6" step="1"></div>
+      </div>
+      <table class="res-table">
+        <tr class="head"><td>Line item</td><td>Single</td><td>Married Filing Jointly</td></tr>
+        <tr><td>Business income</td><td id="s2IncS"></td><td id="s2IncJ"></td></tr>
+        <tr class="sub"><td>Year-one §168(k) device deduction</td><td id="s2LossS"></td><td id="s2LossJ"></td></tr>
+        <tr><td>Deduction usable in year one</td><td id="s2UseS"></td><td id="s2UseJ"></td></tr>
+        <tr class="sub"><td>Carried forward as NOL</td><td id="s2CarryS"></td><td id="s2CarryJ"></td></tr>
+        <tr class="sub"><td>Federal tax without strategy</td><td id="s2TaxBS"></td><td id="s2TaxBJ"></td></tr>
+        <tr class="sub"><td>Federal tax with strategy</td><td id="s2TaxAS"></td><td id="s2TaxAJ"></td></tr>
+        <tr class="strong"><td>Year-one federal tax savings</td><td id="s2SavS"></td><td id="s2SavJ"></td></tr>
+        <tr><td>Effective savings rate on deduction used</td><td id="s2RateS"></td><td id="s2RateJ"></td></tr>
+        <tr><td>Tax savings vs. cash down payment</td><td id="s2CashS"></td><td id="s2CashJ"></td></tr>
+        <tr class="strong"><td>Net year-one benefit (savings − down payment)</td><td id="s2NetS"></td><td id="s2NetJ"></td></tr>
+      </table>
+      <div class="res-tax">Financing per device: $400,000 cost, $50,000 down, 10-year term at 4% — annual debt service of <span id="s2Debt"></span> per device, paid from the owner entity's revenue share. Material participation in the device activity is still required for nonpassive treatment.</div>
+      <p class="note">Both scenarios are simplified federal illustrations: they apply 2026 brackets and the standard deduction only, and ignore QBI (§199A), AMT, self-employment and payroll tax, the net investment income tax, state income tax (many states decouple from bonus depreciation), and year-one operating results from the device. Depreciation is a deferral — §1245 recapture applies on disposition. Not tax advice; outcomes depend on individual facts. Consult your tax advisor.</p>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">FAQ</div>
+      <h2>Common questions</h2>
+    </div>
+    <div class="faq-item"><button class="faq-q">Is this a tax shelter?</button><div class="faq-a"><p>No — and that distinction matters. Marketed deals where passive investors buy equipment chiefly to harvest depreciation are an IRS enforcement focus. This model is an operating business: equipment purchased at the retail market price in an arm's-length transaction, real staffing and billing operations, recourse financing, and a credible pre-tax profit objective. The tax treatment follows the economics, not the other way around.</p></div></div>
+    <div class="faq-item"><button class="faq-q">Do I have to be involved day-to-day?</button><div class="faq-a"><p>The model is built for owners who materially participate — typically 100–500+ hours per year depending on which §469 test applies, with contemporaneous time logs. Owners who can't participate should expect passive treatment, which changes how losses can be used. We address this candidly in every consultation.</p></div></div>
+    <div class="faq-item"><button class="faq-q">What equipment qualifies for 100% bonus depreciation?</button><div class="faq-a"><p>Medical equipment is generally 5-year MACRS property, well within §168(k)'s 20-year ceiling. Both the binding acquisition contract and the placed-in-service date must fall after January 19, 2025. Used and refurbished equipment qualifies if it's your first use and purchased arm's-length from an unrelated party.</p></div></div>
+    <div class="faq-item"><button class="faq-q">What happens when the equipment is sold?</button><div class="faq-a"><p>Bonus depreciation reduces basis to zero, so gain on sale up to original cost is recaptured as ordinary income under §1245. The deduction is a deferral with real time-value benefits — not a permanent exclusion — and exit planning is part of every engagement.</p></div></div>
+    <div class="faq-item"><button class="faq-q">Are there healthcare regulatory issues?</button><div class="faq-a"><p>Potentially, yes. Where referring physicians hold ownership, the Stark Law and Anti-Kickback Statute constrain per-use and revenue-share compensation. Every placement involving referral relationships is reviewed by healthcare regulatory counsel before signing.</p></div></div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow" style="color:var(--gold)">Get Started</div>
+      <h2>Request a consultation</h2>
+      <p>Tell us about your situation and we'll schedule a call to walk through the model, the real numbers from live locations, and whether it fits your facts. Straight answers — including when it isn't the right move.</p>
+      <p style="margin-top:22px"><a class="btn btn-primary" href="https://calendly.com/chriscraig702/medical-device-tax-strategy" target="_blank" rel="noopener">Schedule a Strategy Call</a></p>
+      <p style="margin-top:18px;font-size:14px;opacity:.75">Book a 60-minute Medical Device Tax Strategy session directly on the calendar — or send us a message below.</p>
+      <p style="margin-top:14px;font-size:15px"><a href="mailto:chris@thetaxfirm.us" style="color:inherit;font-weight:700;text-decoration:none">chris@thetaxfirm.us</a> &nbsp;&middot;&nbsp; <a href="tel:+17024982144" style="color:inherit;font-weight:700;text-decoration:none">(702) 498-2144</a></p>
+    </div>
+    <form class="form-grid" id="leadForm">
+      <div><label for="name">Full name *</label><input id="name" name="name" required placeholder="Jane Smith"></div>
+      <div><label for="email">Email *</label><input id="email" name="email" type="email" required placeholder="jane@example.com"></div>
+      <div><label for="phone">Phone</label><input id="phone" name="phone" type="tel" placeholder="(555) 123-4567"></div>
+      <div><label for="profile">I am a…</label><select id="profile" name="profile"><option>Business owner / entrepreneur</option><option>W-2 employee</option><option>Physician / practice owner</option><option>Facility administrator</option><option>Advisor (CPA, attorney, wealth manager)</option><option>Other</option></select></div>
+      <div><label for="income">Annual income</label><select id="income" name="income"><option value="" disabled selected>Select annual income…</option><option>$400,000 or more</option><option>$150,000 to $400,000</option></select></div>
+      <div class="full"><label for="message">What would you like to discuss?</label><textarea id="message" name="message" rows="4" placeholder="Equipment type, investment range, timing, questions…"></textarea></div>
+      <div style="position:absolute;left:-9999px" aria-hidden="true"><label>Company website<input type="text" name="company_website" tabindex="-1" autocomplete="off"></label></div>
+      <div class="full"><button class="btn btn-primary" type="submit">Submit Inquiry</button></div>
+    </form>
+    <div class="form-error" id="formError">Something went wrong sending your inquiry. Please email <a href="mailto:chris@thetaxfirm.us" style="color:inherit;font-weight:700">chris@thetaxfirm.us</a> or call <a href="tel:+17024982144" style="color:inherit;font-weight:700">(702) 498-2144</a> and we'll take care of it.</div>
+    <div class="form-success" id="formSuccess">✓ Thank you — your inquiry has been received. We'll be in touch within one business day. Want to skip the wait? <a href="https://calendly.com/chriscraig702/medical-device-tax-strategy" target="_blank" rel="noopener" style="color:inherit;font-weight:700">Book your call now</a>.</div>
+  </div>
+</section>
+
+<div class="disclaimer">
+  <div class="wrap">
+    <b>Important Disclosures</b>
+    <p>MH Services LLC is not a law firm, accounting firm, or registered investment adviser, and nothing on this site is tax, legal, or investment advice. Tax outcomes depend on each owner's individual facts and circumstances, including characterization of the activity, material participation, at-risk amounts, the excess business loss limitation, state tax conformity, and depreciation recapture on disposition. Hypothetical examples are illustrations, not projections or guarantees. Equipment ownership involves genuine economic risk, including loss of capital, utilization shortfalls, and obsolescence. Prospective participants should consult their own qualified tax, legal, and healthcare regulatory advisors before entering any arrangement. Arrangements involving referring physicians are subject to the federal Stark Law and Anti-Kickback Statute.</p>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 <a href="https://www.mhservicesllc.com" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;font-weight:700">MH Services LLC</a>. All rights reserved. Medical Device Tax Deductions is offered through <a href="https://www.mhservicesllc.com" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">MH Services LLC</a>.</span>
+    <span><a href="https://www.thetaxfirm.us" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;font-weight:700">The Tax Firm</a> &middot; <a href="mailto:chris@thetaxfirm.us" style="color:inherit;text-decoration:none">chris@thetaxfirm.us</a> &middot; <a href="tel:+17024982144" style="color:inherit;text-decoration:none">(702) 498-2144</a></span>
+  </div>
+</footer>
+
+<script>
+  // Mobile nav toggle
+  (function(){
+    var header = document.querySelector('header');
+    var toggle = document.getElementById('navToggle');
+    var nav = document.getElementById('primaryNav');
+    if(toggle){
+      toggle.addEventListener('click', function(){
+        var open = header.classList.toggle('menu-open');
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+        toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      });
+      nav.addEventListener('click', function(e){
+        if(e.target.closest('a')){
+          header.classList.remove('menu-open');
+          toggle.setAttribute('aria-expanded','false');
+          toggle.setAttribute('aria-label','Open menu');
+        }
+      });
+    }
+  })();
+  // FAQ accordions
+  document.querySelectorAll('.faq-q').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      btn.parentElement.classList.toggle('open');
+    });
+  });
+  // Revenue calculator
+  (function(){
+    var $ = function(id){ return document.getElementById(id); };
+    var usd = function(n){ return (n < 0 ? '−$' : '$') + Math.abs(n).toLocaleString('en-US', {maximumFractionDigits: 0}); };
+    var OFFICE = 0.50, MARKETING = 0.30;
+
+    function payment(principal, annualRate, years){
+      if (principal <= 0) return 0;
+      var r = annualRate / 100 / 12, n = years * 12;
+      if (r === 0) return principal / n;
+      return principal * r / (1 - Math.pow(1 + r, -n));
+    }
+
+    function calc(){
+      var price = +$('cPrice').value, vol = +$('cVol').value, cogs = +$('cCogs').value;
+      var cost = +$('cCost').value, down = Math.min(+$('cDown').value, cost);
+      var rate = +$('cRate').value, term = Math.max(1, +$('cTerm').value);
+      var financed = cost - down;
+      var debtM = payment(financed, rate, term);
+
+      var revM = price * vol;
+      var cogsM = cogs * vol;
+      var netM = revM - cogsM;
+      var officeM = netM > 0 ? netM * OFFICE : 0;
+      var mktM = netM > 0 ? netM * MARKETING : 0;
+      var ownShM = netM - officeM - mktM;
+      var ownerM = ownShM - debtM;
+
+      $('cPriceOut').textContent = usd(price);
+      $('cVolOut').textContent = vol;
+      $('rFin').textContent = usd(financed);
+      $('rRevM').textContent = usd(revM);      $('rRevY').textContent = usd(revM * 12);
+      $('rCogsM').textContent = usd(-cogsM);   $('rCogsY').textContent = usd(-cogsM * 12);
+      $('rDebtM').textContent = usd(-debtM);   $('rDebtY').textContent = usd(-debtM * 12);
+      $('rNetM').textContent = usd(netM);      $('rNetY').textContent = usd(netM * 12);
+      $('rOfficeM').textContent = usd(-officeM); $('rOfficeY').textContent = usd(-officeM * 12);
+      $('rMktM').textContent = usd(-mktM);     $('rMktY').textContent = usd(-mktM * 12);
+      $('rOwnShM').textContent = usd(ownShM);  $('rOwnShY').textContent = usd(ownShM * 12);
+      $('rOwnerY').textContent = usd(ownerM * 12) + ' / yr';
+      $('rBonus').textContent = usd(cost);
+      var ownerMargin = (price - cogs) * (1 - OFFICE - MARKETING);
+      $('rBE').textContent = ownerMargin > 0 ? Math.ceil(debtM / ownerMargin) : '—';
+
+      renderWaterfall(price, cogs, debtM);
+    }
+
+    function renderWaterfall(price, cogs, debtM){
+      var VOL = 65; // 3/day x 5 days/week ~= 65/month
+      var rev = price * VOL, cg = cogs * VOL, net = rev - cg;
+      var off = net > 0 ? net * OFFICE : 0, mkt = net > 0 ? net * MARKETING : 0;
+      var ownSh = net - off - mkt, cash = ownSh - debtM;
+
+      // [label, bottom of bar, top of bar, type]
+      var bars = [
+        ['Revenue',        0,            rev,          'total'],
+        ['COGS',           net,          rev,          'down'],
+        ['Net profit',     0,            net,          'total'],
+        ['Office (50%)',   net - off,    net,          'down'],
+        ['Mktg (30%)',     ownSh,        net - off,    'down'],
+        ['Owner (20%)',    0,            ownSh,        'total'],
+        ['Debt service',   Math.max(cash, 0), ownSh,   'down'],
+        ['Owner cash',     Math.min(cash, 0), Math.max(cash, 0), 'final']
+      ];
+      var W = 960, H = 380, baseY = 322, topPad = 34;
+      var maxV = Math.max(rev, 1);
+      var scale = (baseY - topPad) / maxV;
+      var slot = W / bars.length, barW = slot * 0.66;
+      var colors = { total: '#143a63', down: '#c0654d', final: '#0e8f8a' };
+      var fmt = function(n){ return (n < 0 ? '−$' : '$') + Math.abs(Math.round(n)).toLocaleString('en-US'); };
+
+      var s = '<svg viewBox="0 0 ' + W + ' ' + H + '" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;font-family:Archivo,Segoe UI,Arial,sans-serif">';
+      s += '<line x1="0" y1="' + baseY + '" x2="' + W + '" y2="' + baseY + '" stroke="#e3e9ef" stroke-width="1.5"/>';
+      bars.forEach(function(bar, i){
+        var x = i * slot + (slot - barW) / 2;
+        var y1 = baseY - bar[1] * scale, y2 = baseY - bar[2] * scale;
+        var top = Math.min(y1, y2), h = Math.max(Math.abs(y1 - y2), 2);
+        var val = bar[3] === 'down' ? -(bar[2] - bar[1]) : (bar[3] === 'final' ? (bar[2] > 0 ? bar[2] : bar[1]) : bar[2]);
+        if (bar[3] === 'final' && (bars[7][1] < 0)) val = bars[7][1]; // negative cash case
+        s += '<rect x="' + x + '" y="' + top + '" width="' + barW + '" height="' + h + '" rx="4" fill="' + colors[bar[3] === 'final' ? 'final' : bar[3]] + '"/>';
+        // connector to next bar
+        if (i < bars.length - 1){
+          var lvl = bar[3] === 'down' ? bar[1] : bar[2];
+          var cy = baseY - lvl * scale;
+          s += '<line x1="' + (x + barW) + '" y1="' + cy + '" x2="' + ((i + 1) * slot + (slot - barW) / 2) + '" y2="' + cy + '" stroke="#9fb2c4" stroke-width="1" stroke-dasharray="4 3"/>';
+        }
+        s += '<text x="' + (x + barW / 2) + '" y="' + (top - 8) + '" text-anchor="middle" font-size="14" font-weight="700" fill="#1d2733">' + fmt(val) + '</text>';
+        s += '<text x="' + (x + barW / 2) + '" y="' + (baseY + 22) + '" text-anchor="middle" font-size="12.5" fill="#5b6b7c">' + bar[0] + '</text>';
+      });
+      s += '</svg>';
+      document.getElementById('waterfall').innerHTML = s;
+    }
+
+    ['cPrice','cVol','cCogs','cCost','cDown','cRate','cTerm'].forEach(function(id){
+      $(id).addEventListener('input', calc);
+    });
+    calc();
+  })();
+
+  // Revenue calculator — Plasmapheresis
+  (function(){
+    var $ = function(id){ return document.getElementById(id); };
+    var usd = function(n){ return (n < 0 ? '−$' : '$') + Math.abs(n).toLocaleString('en-US', {maximumFractionDigits: 0}); };
+    var OFFICE = 0.50, MARKETING = 0.30;
+
+    function payment(principal, annualRate, years){
+      if (principal <= 0) return 0;
+      var r = annualRate / 100 / 12, n = years * 12;
+      if (r === 0) return principal / n;
+      return principal * r / (1 - Math.pow(1 + r, -n));
+    }
+
+    function calc(){
+      var price = +$('pPrice').value, vol = +$('pVol').value, cogs = +$('pCogs').value;
+      var cost = +$('pCost').value, down = Math.min(+$('pDown').value, cost);
+      var rate = +$('pRate').value, term = Math.max(1, +$('pTerm').value);
+      var financed = cost - down;
+      var debtM = payment(financed, rate, term);
+
+      var revM = price * vol;
+      var cogsM = cogs * vol;
+      var netM = revM - cogsM;
+      var officeM = netM > 0 ? netM * OFFICE : 0;
+      var mktM = netM > 0 ? netM * MARKETING : 0;
+      var ownShM = netM - officeM - mktM;
+      var ownerM = ownShM - debtM;
+
+      $('pPriceOut').textContent = usd(price);
+      $('pVolOut').textContent = vol;
+      $('prFin').textContent = usd(financed);
+      $('prRevM').textContent = usd(revM);      $('prRevY').textContent = usd(revM * 12);
+      $('prCogsM').textContent = usd(-cogsM);   $('prCogsY').textContent = usd(-cogsM * 12);
+      $('prDebtM').textContent = usd(-debtM);   $('prDebtY').textContent = usd(-debtM * 12);
+      $('prNetM').textContent = usd(netM);      $('prNetY').textContent = usd(netM * 12);
+      $('prOfficeM').textContent = usd(-officeM); $('prOfficeY').textContent = usd(-officeM * 12);
+      $('prMktM').textContent = usd(-mktM);     $('prMktY').textContent = usd(-mktM * 12);
+      $('prOwnShM').textContent = usd(ownShM);  $('prOwnShY').textContent = usd(ownShM * 12);
+      $('prOwnerY').textContent = usd(ownerM * 12) + ' / yr';
+      $('prBonus').textContent = usd(cost);
+      var ownerMargin = (price - cogs) * (1 - OFFICE - MARKETING);
+      $('prBE').textContent = ownerMargin > 0 ? Math.ceil(debtM / ownerMargin) : '—';
+
+      renderWaterfall(price, cogs, debtM);
+    }
+
+    function renderWaterfall(price, cogs, debtM){
+      var VOL = 40; // ~2/day x 5 days/week ~= 40/month
+      var rev = price * VOL, cg = cogs * VOL, net = rev - cg;
+      var off = net > 0 ? net * OFFICE : 0, mkt = net > 0 ? net * MARKETING : 0;
+      var ownSh = net - off - mkt, cash = ownSh - debtM;
+
+      var bars = [
+        ['Revenue',        0,            rev,          'total'],
+        ['COGS',           net,          rev,          'down'],
+        ['Net profit',     0,            net,          'total'],
+        ['Office (50%)',   net - off,    net,          'down'],
+        ['Mktg (30%)',     ownSh,        net - off,    'down'],
+        ['Owner (20%)',    0,            ownSh,        'total'],
+        ['Debt service',   Math.max(cash, 0), ownSh,   'down'],
+        ['Owner cash',     Math.min(cash, 0), Math.max(cash, 0), 'final']
+      ];
+      var W = 960, H = 380, baseY = 322, topPad = 34;
+      var maxV = Math.max(rev, 1);
+      var scale = (baseY - topPad) / maxV;
+      var slot = W / bars.length, barW = slot * 0.66;
+      var colors = { total: '#143a63', down: '#c0654d', final: '#0e8f8a' };
+      var fmt = function(n){ return (n < 0 ? '−$' : '$') + Math.abs(Math.round(n)).toLocaleString('en-US'); };
+
+      var s = '<svg viewBox="0 0 ' + W + ' ' + H + '" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;font-family:Archivo,Segoe UI,Arial,sans-serif">';
+      s += '<line x1="0" y1="' + baseY + '" x2="' + W + '" y2="' + baseY + '" stroke="#e3e9ef" stroke-width="1.5"/>';
+      bars.forEach(function(bar, i){
+        var x = i * slot + (slot - barW) / 2;
+        var y1 = baseY - bar[1] * scale, y2 = baseY - bar[2] * scale;
+        var top = Math.min(y1, y2), h = Math.max(Math.abs(y1 - y2), 2);
+        var val = bar[3] === 'down' ? -(bar[2] - bar[1]) : (bar[3] === 'final' ? (bar[2] > 0 ? bar[2] : bar[1]) : bar[2]);
+        if (bar[3] === 'final' && (bars[7][1] < 0)) val = bars[7][1];
+        s += '<rect x="' + x + '" y="' + top + '" width="' + barW + '" height="' + h + '" rx="4" fill="' + colors[bar[3] === 'final' ? 'final' : bar[3]] + '"/>';
+        if (i < bars.length - 1){
+          var lvl = bar[3] === 'down' ? bar[1] : bar[2];
+          var cy = baseY - lvl * scale;
+          s += '<line x1="' + (x + barW) + '" y1="' + cy + '" x2="' + ((i + 1) * slot + (slot - barW) / 2) + '" y2="' + cy + '" stroke="#9fb2c4" stroke-width="1" stroke-dasharray="4 3"/>';
+        }
+        s += '<text x="' + (x + barW / 2) + '" y="' + (top - 8) + '" text-anchor="middle" font-size="14" font-weight="700" fill="#1d2733">' + fmt(val) + '</text>';
+        s += '<text x="' + (x + barW / 2) + '" y="' + (baseY + 22) + '" text-anchor="middle" font-size="12.5" fill="#5b6b7c">' + bar[0] + '</text>';
+      });
+      s += '</svg>';
+      document.getElementById('pWaterfall').innerHTML = s;
+    }
+
+    ['pPrice','pVol','pCogs','pCost','pDown','pRate','pTerm'].forEach(function(id){
+      $(id).addEventListener('input', calc);
+    });
+    calc();
+  })();
+
+  // Federal tax savings scenarios (2026, Rev. Proc. 2025-32)
+  (function(){
+    var $ = function(id){ return document.getElementById(id); };
+    var usd = function(n){ return (n < 0 ? '−$' : '$') + Math.abs(Math.round(n)).toLocaleString('en-US'); };
+    var DEVICE_COST = 400000, DOWN = 50000, RATE = 0.04, TERM = 10;
+    var EBL = { S: 256000, J: 512000 };           // 2026 §461(l) thresholds
+    var STD = { S: 16100,  J: 32200 };            // 2026 standard deduction
+    var BRACKETS = {                               // 2026 ordinary brackets [upper, rate]
+      S: [[12400,.10],[50400,.12],[105700,.22],[201775,.24],[256225,.32],[640600,.35],[Infinity,.37]],
+      J: [[24800,.10],[100800,.12],[211400,.22],[403550,.24],[512450,.32],[768700,.35],[Infinity,.37]]
+    };
+
+    function tax2026(ti, st){
+      if (ti <= 0) return 0;
+      var t = 0, lower = 0;
+      for (var i = 0; i < BRACKETS[st].length; i++){
+        var upper = BRACKETS[st][i][0], rate = BRACKETS[st][i][1];
+        if (ti > upper){ t += (upper - lower) * rate; lower = upper; }
+        else { t += (ti - lower) * rate; break; }
+      }
+      return t;
+    }
+
+    function debtAnnual(){
+      var r = RATE / 12, n = TERM * 12, p = DEVICE_COST - DOWN;
+      return (p * r / (1 - Math.pow(1 + r, -n))) * 12;
+    }
+
+    // Scenario 1: income is NONbusiness (wages/Roth) -> §461(l) caps usable loss
+    function scen1(income, loss, st){
+      var usable = Math.min(loss, EBL[st]);
+      var carry = loss - usable;
+      var taxB = tax2026(income - STD[st], st);
+      var taxA = tax2026(income - usable - STD[st], st);
+      return { usable: usable, carry: carry, taxB: taxB, taxA: taxA, sav: taxB - taxA };
+    }
+
+    // Scenario 2: income is BUSINESS income -> loss nets against it without EBL cap;
+    // only a net loss beyond business income would hit the §461(l) cap vs nonbusiness income (none here)
+    function scen2(income, loss, st){
+      var usable = Math.min(loss, income);          // offsets business income fully
+      var excess = loss - usable;                   // would face EBL cap vs nonbusiness income
+      var carry = excess;                           // no nonbusiness income in this scenario
+      var taxB = tax2026(income - STD[st], st);
+      var taxA = tax2026(income - usable - STD[st], st);
+      return { usable: usable, carry: carry, taxB: taxB, taxA: taxA, sav: taxB - taxA };
+    }
+
+    function fill(prefix, income, dev, fn){
+      var loss = dev * DEVICE_COST, down = dev * DOWN;
+      ['S','J'].forEach(function(st){
+        var r = fn(income, loss, st);
+        $(prefix + 'Inc' + st).textContent = usd(income);
+        $(prefix + 'Loss' + st).textContent = usd(-loss);
+        $(prefix + 'Use' + st).textContent = usd(r.usable);
+        $(prefix + 'Carry' + st).textContent = usd(r.carry);
+        $(prefix + 'TaxB' + st).textContent = usd(r.taxB);
+        $(prefix + 'TaxA' + st).textContent = usd(r.taxA);
+        $(prefix + 'Sav' + st).textContent = usd(r.sav);
+        $(prefix + 'Rate' + st).textContent = r.usable > 0 ? (r.sav / r.usable * 100).toFixed(1) + '%' : '—';
+        $(prefix + 'Cash' + st).textContent = usd(r.sav) + ' vs ' + usd(down) + ' down';
+        $(prefix + 'Net' + st).textContent = usd(r.sav - down);
+      });
+    }
+
+    function runScenarios(){
+      fill('s1', Math.max(0, +$('s1Income').value), Math.max(1, +$('s1Dev').value), scen1);
+      fill('s2', Math.max(0, +$('s2Income').value), Math.max(1, +$('s2Dev').value), scen2);
+      $('s2Debt').textContent = usd(debtAnnual());
+    }
+
+    ['s1Income','s1Dev','s2Income','s2Dev'].forEach(function(id){
+      $(id).addEventListener('input', runScenarios);
+    });
+    runScenarios();
+  })();
+
+  // Lead form — posts to the /api/lead serverless function
+  (function(){
+    var form = document.getElementById('leadForm');
+    if(!form) return;
+    var success = document.getElementById('formSuccess');
+    var errorBox = document.getElementById('formError');
+    var btn = form.querySelector('button[type=submit]');
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      if(errorBox) errorBox.style.display = 'none';
+      // honeypot — if filled, silently drop (bot)
+      if(form.company_website && form.company_website.value){ return; }
+      var original = btn.textContent;
+      btn.disabled = true; btn.textContent = 'Sending…';
+
+      var payload = Object.fromEntries(new FormData(form).entries());
+      fetch('/api/lead', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(payload)
+      })
+      .then(function(res){ return res.json().catch(function(){ return {}; }).then(function(d){ return {ok: res.ok, data: d}; }); })
+      .then(function(r){
+        if(!r.ok) throw new Error((r.data && r.data.error) || 'Request failed');
+        form.style.display = 'none';
+        if(success) success.style.display = 'block';
+      })
+      .catch(function(){
+        btn.disabled = false; btn.textContent = original;
+        if(errorBox) errorBox.style.display = 'block';
+      });
+    });
+  })();
+</script>
+</body>
+</html>
