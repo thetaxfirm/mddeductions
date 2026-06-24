@@ -41,6 +41,24 @@ function formatDate(iso) {
   return d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
 }
 
+// Always emit a valid ISO 8601 string for <time datetime="...">, whether the
+// frontmatter date was quoted (string) or unquoted (parsed to a Date by YAML).
+function isoDate(value) {
+  const d = new Date(value);
+  return Number.isNaN(d.getTime()) ? '' : d.toISOString();
+}
+
+// Repair internal links that point at our own domain without a scheme or
+// leading slash (e.g. "mddeductions.com/blog/x"), which browsers treat as
+// broken relative paths. Rewrites them to root-relative ("/blog/x"). External
+// links (irs.gov, etc.) and already-correct links are left untouched.
+function fixLinks(html) {
+  return html.replace(
+    /href="(?:https?:\/\/)?(?:www\.)?mddeductions\.com(\/[^"]*)?"/gi,
+    (_match, p) => `href="${p || '/'}"`
+  );
+}
+
 function readPosts() {
   if (!fs.existsSync(CONTENT_DIR)) return [];
   return fs
@@ -57,7 +75,7 @@ function readPosts() {
         date: data.date || '',
         image: data.image || '',
         tags: Array.isArray(data.tags) ? data.tags : [],
-        bodyHtml: marked.parse(content),
+        bodyHtml: fixLinks(marked.parse(content)),
       };
     })
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
@@ -100,7 +118,7 @@ function renderIndex(posts) {
       (p) => `<li class="card"><a class="card-link" href="/blog/${esc(p.slug)}">
   <div class="cover-frame">${p.image ? `<img class="cover" src="${esc(p.image)}" alt="" loading="lazy">` : ''}</div>
   <div class="card-body">
-    <time class="date" datetime="${esc(p.date)}">${esc(formatDate(p.date))}</time>
+    <time class="date" datetime="${esc(isoDate(p.date))}">${esc(formatDate(p.date))}</time>
     <h2 class="card-title">${esc(p.title)}</h2>
     <p class="card-desc">${esc(p.description)}</p>
   </div>
@@ -153,7 +171,7 @@ ${chrome.header}
     <a class="back" href="/blog">&larr; All posts</a>
     <header class="post-header">
       <div class="meta">
-        <time class="date" datetime="${esc(post.date)}">${esc(formatDate(post.date))}</time>
+        <time class="date" datetime="${esc(isoDate(post.date))}">${esc(formatDate(post.date))}</time>
         ${tags}
       </div>
       <h1 class="title">${esc(post.title)}</h1>
