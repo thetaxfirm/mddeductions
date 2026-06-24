@@ -1,10 +1,20 @@
 // Build-time blog generator for a static (no-framework) Vercel site.
 //
 // Reads Markdown/MDX posts from content/blog/, renders each to static HTML,
-// and writes /blog (index) and /blog/<slug>/ (one per post) into the site's
-// web root. No database, no CMS, no hardcoded list — the folder is the source
-// of truth. Only adds files under <webroot>/blog/; never touches anything else.
+// and writes /blog (index) and /blog/<slug>/ (one per post).
 //
+// IMPORTANT — web root handling:
+// Vercel serves `public/` if that folder exists, otherwise the repo root.
+// Because this project keeps its site files at the repo ROOT but the blog's
+// cover images live under `public/`, the presence of `public/` makes Vercel
+// serve `public/` only — which would hide the root homepage. To prevent that,
+// when `public/` is the web root this script first copies the existing root
+// site (everything except source, config, deps, and `api/`) into `public/`,
+// then generates the blog alongside it. Net effect: `public/` becomes the
+// full served site (homepage + assets + blog), node_modules and sources stay
+// out of it, and no vercel.json / output-directory change is needed.
+//
+// No database, no CMS, no hardcoded list — content/blog is the source of truth.
 // Run by Vercel during the build (see README). Locally: `npm run build`.
 
 import fs from 'node:fs';
@@ -14,13 +24,37 @@ import { marked } from 'marked';
 
 const ROOT = process.cwd();
 const CONTENT_DIR = path.join(ROOT, 'content', 'blog');
+const PUBLIC_DIR = path.join(ROOT, 'public');
 
 // Vercel serves `public/` if it exists, otherwise the repo root. Match that so
 // generated pages land where they'll actually be served from.
-const WEB_ROOT = fs.existsSync(path.join(ROOT, 'public'))
-  ? path.join(ROOT, 'public')
-  : ROOT;
+const WEB_ROOT = fs.existsSync(PUBLIC_DIR) ? PUBLIC_DIR : ROOT;
 const OUT_DIR = path.join(WEB_ROOT, 'blog');
+
+// Root entries that must NOT be copied into public/ (build sources, config,
+// dependencies, VCS, and `api/` — Vercel serves functions from the repo root
+// regardless of the output directory, so it must stay there, not be duplicated
+// as a static file). Everything else at the root is treated as site content.
+const DO_NOT_COPY = new Set([
+  'public',
+  'node_modules',
+  'api',
+  'content',
+  'scripts',
+  'package.json',
+  'package-lock.json',
+  'pnpm-lock.yaml',
+  'yarn.lock',
+  'vercel.json',
+  'README.md',
+  'README-blog.md',
+  '.git',
+  '.github',
+  '.vercel',
+  '.gitignore',
+  '.vercelignore',
+  '.DS_Store',
+]);
 
 // Used to make OG/canonical URLs absolute. Override with the SITE_URL env var.
 const SITE_URL = (process.env.SITE_URL || 'https://mddeductions.com').replace(/\/$/, '');
@@ -197,7 +231,29 @@ function writeFile(filePath, contents) {
   fs.writeFileSync(filePath, contents);
 }
 
+// When public/ is the web root, mirror the root site files into it so the
+// homepage and assets are served from the same directory as the blog. Skips
+// build sources, config, deps, VCS, and api/. No-op when serving from root.
+function copySiteIntoPublic() {
+  if (WEB_ROOT !== PUBLIC_DIR) return 0;
+  let copied = 0;
+  for (const entry of fs.readdirSync(ROOT)) {
+    if (DO_NOT_COPY.has(entry)) continue;
+    // Never copy hidden/dotfiles into the web root (.env, .DS_Store, etc.),
+    // except legitimate public paths like .well-known.
+    if (entry.startsWith('.') && entry !== '.well-known') continue;
+    fs.cpSync(path.join(ROOT, entry), path.join(PUBLIC_DIR, entry), {
+      recursive: true,
+      force: true,
+    });
+    copied += 1;
+  }
+  return copied;
+}
+
 function main() {
+  const copied = copySiteIntoPublic();
+
   const posts = readPosts();
 
   fs.mkdirSync(OUT_DIR, { recursive: true });
@@ -208,6 +264,9 @@ function main() {
   }
 
   const rel = path.relative(ROOT, OUT_DIR) || '.';
+  if (copied > 0) {
+    console.log(`blog: mirrored ${copied} root item(s) into public/`);
+  }
   console.log(`blog: wrote ${posts.length} post(s) + index to ${rel}/`);
 }
 
