@@ -1029,7 +1029,7 @@ footer nav a:hover{color:var(--ink)}
   /* ---------- /?post=slug opens at the article ---------- */
   if (/[?&]post=/.test(location.search)){
     var box = $('soro-blog'), done = false;
-    var go = function(){ if (done) return; done = true; $('insights').scrollIntoView({behavior:'instant', block:'start'}); };
+    var go = function(){ if (done) return; done = true; $('insights').scrollIntoView({behavior:'instant', block:'start'}); hdr.classList.add('solid'); };
     if (box && window.MutationObserver){ new MutationObserver(function(_, o){ if (box.children.length){ o.disconnect(); setTimeout(go, 60); } }).observe(box, {childList:true}); }
     setTimeout(go, 2500);
   }
