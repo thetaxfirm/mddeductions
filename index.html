@@ -215,7 +215,7 @@ section.block{padding:clamp(84px,11vw,150px) 0; position:relative}
 
 /* programs */
 .prog-head{display:grid; grid-template-columns:1.1fr 1fr; gap:40px; align-items:end}
-.prog-grid{display:grid; grid-template-columns:repeat(3,1fr); grid-template-rows:auto 112px auto 1fr auto; gap:0 clamp(18px,2.4vw,32px); margin-top:64px}
+.prog-grid{display:grid; grid-template-columns:repeat(2,1fr); grid-template-rows:auto 112px auto 1fr auto; gap:0 clamp(18px,2.4vw,32px); margin-top:64px}
 .prog{display:grid; grid-row:span 5; grid-template-rows:subgrid}
 .prog .ph{position:relative; aspect-ratio:4/3; border-radius:18px; overflow:hidden; background:#000}
 .prog .ph img{width:100%; height:100%; object-fit:cover; transition:transform 1.2s cubic-bezier(.2,.8,.2,1)}
@@ -230,8 +230,6 @@ section.block{padding:clamp(84px,11vw,150px) 0; position:relative}
 .prog .ext{display:inline-flex; gap:7px; align-items:center; font-size:14.5px; font-weight:600; text-decoration:none; color:var(--pink); padding:14px 0}
 .prog .ext svg{width:13px; height:13px; transition:transform .25s}
 .prog .ext:hover svg{transform:translate(2px,-2px)}
-.wm-plasma{font-family:var(--disp); font-weight:800; font-size:30px; letter-spacing:-.02em; line-height:1}
-.wm-plasma span{font-weight:300; color:var(--pink3)}
 @media (max-width: 900px){
   .prog-head{grid-template-columns:1fr; gap:0}
   .prog-grid{grid-template-columns:1fr; grid-template-rows:none; gap:56px}
@@ -266,7 +264,7 @@ section.block{padding:clamp(84px,11vw,150px) 0; position:relative}
 /* calculator */
 .tool{margin-top:56px; background:var(--panel); border-radius:24px; box-shadow:inset 0 0 0 1px var(--line), inset 0 1px 0 rgba(255,255,255,.05)}
 .tabs{display:flex; position:relative; gap:4px; padding:8px; border-bottom:1px solid var(--line); overflow-x:auto}
-.tab{position:relative; z-index:1; background:none; border:0; color:var(--ink3); font:600 15px/1 var(--sans); padding:14px 20px; border-radius:999px; cursor:pointer; white-space:nowrap; transition:color .25s; display:flex; align-items:center; gap:10px}
+.tab{position:relative; z-index:1; background:none; border:0; color:var(--ink3); font:600 15px/1 var(--sans); padding:14px 20px; border-radius:999px; cursor:default; white-space:nowrap; transition:color .25s; display:flex; align-items:center; gap:10px}
 .tab[aria-selected="true"]{color:#050506}
 .tab:not([aria-selected="true"]):hover{color:var(--ink)}
 .tab img{height:15px; width:auto}
@@ -523,7 +521,7 @@ footer nav a:hover{color:var(--ink)}
     <ul>
       <li><b>Year one</b><span>the deduction lands in the first year, not spread over six</span></li>
       <li><b>6</b><span>locations live, staffed, scheduling and billing today</span></li>
-      <li><b>3</b><span>clinic programs across personal injury and personal wellness</span></li>
+      <li><b>2</b><span>clinic programs across personal injury and personal wellness</span></li>
       <li><b>Active</b><span>for people who take a real role in the clinic, not passive investors</span></li>
     </ul>
   </div>
@@ -583,16 +581,6 @@ footer nav a:hover{color:var(--ink)}
           <div><dt>Equipment</dt><dd class="tnum">$300K–500K</dd></div>
         </dl>
       </article>
-      <article class="prog">
-        <div class="ph"><img src="/assets/plasma.jpg" alt="Therapeutic plasma exchange machine with a bag of plasma" width="1200" height="896" loading="lazy"></div>
-        <div class="mark"><span class="wm-plasma">Plasma<span>pheresis</span></span></div>
-        <h3><span class="fld-tag">Personal wellness</span>Plasma exchange</h3>
-        <p>Our highest-value clinic program, with the strongest revenue per treatment and the largest year-one deduction.</p>
-        <dl>
-          <div><dt>Per treatment</dt><dd class="tnum">$4,500–10,000</dd></div>
-          <div><dt>Equipment</dt><dd class="tnum">$900K–1.5M</dd></div>
-        </dl>
-      </article>
     </div>
   </div>
 </section>
@@ -609,7 +597,7 @@ footer nav a:hover{color:var(--ink)}
         <input type="range" id="depCost" min="250000" max="3000000" step="25000" value="500000">
         <dl class="ranges">
           <div><dt>EBOO clinic program</dt><dd class="tnum">$300K–500K</dd></div>
-          <div><dt>Plasmapheresis program</dt><dd class="tnum">$900K–1.5M</dd></div>
+          <div><dt>TBi3<sup>®</sup> unit, personal injury</dt><dd class="tnum">$1M per unit</dd></div>
           <div><dt>Multi-device placements</dt><dd class="tnum">$2M+</dd></div>
         </dl>
       </div>
@@ -643,12 +631,11 @@ footer nav a:hover{color:var(--ink)}
     <h2 class="h2">Model a clinic's revenue <span>with your inputs.</span></h2>
     <p class="sub">Revenue flows through cost of goods, then a 50% medical-office share and a 30% marketing allocation. Your company keeps 20% and pays debt service from it.</p>
     <div class="tool">
-      <div class="tabs" role="tablist" aria-label="Equipment type">
+      <div class="tabs">
         <span class="tab-ind" id="tabInd" aria-hidden="true"></span>
-        <button class="tab" role="tab" id="tab-eboo" aria-selected="true" aria-controls="calcPanel" data-k="eboo">EBOO <small style="font-weight:400; opacity:.7">RebootBlood™</small></button>
-        <button class="tab" role="tab" id="tab-plasma" aria-selected="false" aria-controls="calcPanel" data-k="plasma" tabindex="-1">Plasmapheresis</button>
+        <span class="tab" id="tab-eboo" aria-selected="true" data-k="eboo">EBOO <small style="font-weight:400; opacity:.7">RebootBlood™</small></span>
       </div>
-      <div class="tool-body" id="calcPanel" role="tabpanel" aria-labelledby="tab-eboo">
+      <div class="tool-body" id="calcPanel">
         <div class="inputs">
           <div class="field">
             <label for="cPrice">Revenue per treatment <output id="oPrice" class="tnum">$1,375</output></label>
@@ -938,10 +925,9 @@ footer nav a:hover{color:var(--ink)}
   /* ---------- placement calculator ---------- */
   var OFFICE = 0.50, MARKETING = 0.30;
   var PRESETS = {
-    eboo:   {min:1250, max:1500, step:5,  price:1375, vol:43, cogs:300,  cost:350000,  down:50000,  rate:4, term:10, hint:'Typical EBOO treatment $1,250–$1,500. Equipment typically $300K–500K.'},
-    plasma: {min:4500, max:10000, step:50, price:7000, vol:43, cogs:1500, cost:1000000, down:125000, rate:4, term:10, hint:'Typical plasmapheresis treatment $4,500–$10,000. Equipment typically $900K–1.5M.'}
+    eboo:   {min:1250, max:1500, step:5,  price:1375, vol:43, cogs:300,  cost:350000,  down:50000,  rate:4, term:10, hint:'Typical EBOO treatment $1,250–$1,500. Equipment typically $300K–500K.'}
   };
-  var state = {eboo: Object.assign({}, PRESETS.eboo), plasma: Object.assign({}, PRESETS.plasma)}, cur = 'eboo';
+  var state = {eboo: Object.assign({}, PRESETS.eboo)}, cur = 'eboo';
   var ids = {price:'cPrice', vol:'cVol', cogs:'cCogs', cost:'cCost', down:'cDown', rate:'cRate', term:'cTerm'};
   function payment(P, rate, yrs){ if (P <= 0) return 0; var r = rate / 1200, n = yrs * 12; return r === 0 ? P / n : P * r / (1 - Math.pow(1 + r, -n)); }
   function paint(r){ r.style.setProperty('--p', ((r.value - r.min) / (r.max - r.min) * 100) + '%'); }
