@@ -653,18 +653,18 @@ footer nav a:hover{color:var(--ink)}
               <div class="num"><label for="cCogs">COGS / treatment ($)</label><input id="cCogs" type="number" inputmode="numeric" min="0" step="10" value="300"></div>
               <div class="num"><label for="cCost">Equipment cost ($)</label><input id="cCost" type="number" inputmode="numeric" min="0" step="10000" value="350000"></div>
               <div class="num"><label for="cDown">Down payment ($)</label><input id="cDown" type="number" inputmode="numeric" min="0" step="5000" value="50000"></div>
-              <div class="num"><label for="cRate">Interest rate (%)</label><input id="cRate" type="number" inputmode="decimal" min="0" max="20" step="0.25" value="4"></div>
-              <div class="num"><label for="cTerm">Term (years)</label><input id="cTerm" type="number" inputmode="numeric" min="1" max="25" step="1" value="10"></div>
+              <div class="num"><label for="cRate">Interest rate (%)</label><input id="cRate" type="number" inputmode="decimal" min="0" max="20" step="0.05" value="4.35"></div>
+              <div class="num"><label for="cTerm">Term (years)</label><input id="cTerm" type="number" inputmode="numeric" min="1" max="25" step="1" value="15"></div>
               <div class="num"><label for="cFin">Financed</label><input id="cFin" type="text" value="$300,000" readonly tabindex="-1"></div>
             </div>
           </details>
         </div>
         <div class="results" aria-live="polite">
-          <div class="headline-num"><span class="v tnum" id="rOwner">$68,417</span><span class="u">your cash flow per year, after debt service</span></div>
+          <div class="headline-num"><span class="v tnum" id="rOwner">$250,085</span><span class="u">your cash flow per year, after debt service</span></div>
           <div class="kpis">
             <div class="kpi"><span>Your first-year deduction</span><b class="tnum" id="rBonus">$350,000</b></div>
             <div class="kpi"><span>Annual treatment revenue</span><b class="tnum" id="rRevY">$709,500</b></div>
-            <div class="kpi"><span>Break-even volume</span><b class="tnum" id="rBE">17 / mo</b></div>
+            <div class="kpi"><span>Break-even volume</span><b class="tnum" id="rBE">5 / mo</b></div>
           </div>
           <div class="wf-title"><span>Where each month's revenue goes</span><span id="wfVol" class="tnum">at 43 treatments a month</span></div>
           <div class="wf" id="wf"></div>
@@ -708,17 +708,17 @@ footer nav a:hover{color:var(--ink)}
               <div class="num"><label for="tMed">Medical professional / case</label><input id="tMed" type="text" value="$850" readonly tabindex="-1"></div>
               <div class="num"><label for="tCost">Equipment cost ($)</label><input id="tCost" type="number" inputmode="numeric" min="0" step="25000" value="1000000"></div>
               <div class="num"><label for="tDown">Down payment ($)</label><input id="tDown" type="number" inputmode="numeric" min="0" step="5000" value="125000"></div>
-              <div class="num"><label for="tRate">Interest rate (%)</label><input id="tRate" type="number" inputmode="decimal" min="0" max="20" step="0.25" value="4"></div>
-              <div class="num"><label for="tTerm">Term (years)</label><input id="tTerm" type="number" inputmode="numeric" min="1" max="25" step="1" value="10"></div>
+              <div class="num"><label for="tRate">Interest rate (%)</label><input id="tRate" type="number" inputmode="decimal" min="0" max="20" step="0.05" value="4.35"></div>
+              <div class="num"><label for="tTerm">Term (years)</label><input id="tTerm" type="number" inputmode="numeric" min="1" max="25" step="1" value="15"></div>
             </div>
           </details>
         </div>
         <div class="results" aria-live="polite">
-          <div class="headline-num"><span class="v tnum" id="tOwner">$163,693</span><span class="u">your fee revenue per year at the mature run-rate, after debt service</span></div>
+          <div class="headline-num"><span class="v tnum" id="tOwner">$190,478</span><span class="u">your fee revenue per year at the mature run-rate, after debt service</span></div>
           <div class="kpis">
             <div class="kpi"><span>Your first-year deduction</span><b class="tnum" id="tBonus">$1,000,000</b></div>
             <div class="kpi"><span>Your annual fee revenue</span><b class="tnum" id="tFeeY">$270,000</b></div>
-            <div class="kpi"><span>Break-even volume</span><b class="tnum" id="tBE">60 / mo</b></div>
+            <div class="kpi"><span>Break-even volume</span><b class="tnum" id="tBE">45 / mo</b></div>
           </div>
           <div class="wf-title"><span>Where each month's diagnostic billing goes</span><span id="tVol" class="tnum">at 150 cases a month</span></div>
           <div class="wf" id="twf"></div>
@@ -778,7 +778,7 @@ footer nav a:hover{color:var(--ink)}
         <div class="sv-note" id="svNote"></div>
       </div>
     </div>
-    <p class="fine" style="margin-top:40px; max-width:110ch">Simplified federal illustration: 2026 brackets and standard deduction only (Rev. Proc. 2025-32). Ignores QBI (§199A), AMT, self-employment and payroll tax, net investment income tax, state income tax (many states decouple from bonus depreciation) and the device's year-one operating results. Depreciation is a deferral; §1245 recapture applies on disposition. Financing assumes about 12.5% down and the balance over 10 years at 4%, with debt service paid from your company's revenue share. Requires nonpassive treatment: a passive participant's loss produces $0 of current savings against wages or Roth conversions. Not tax advice.</p>
+    <p class="fine" style="margin-top:40px; max-width:110ch">Simplified federal illustration: 2026 brackets and standard deduction only (Rev. Proc. 2025-32). Ignores QBI (§199A), AMT, self-employment and payroll tax, net investment income tax, state income tax (many states decouple from bonus depreciation) and the device's year-one operating results. Depreciation is a deferral; §1245 recapture applies on disposition. Financing assumes about 12.5% down and the balance over 15 years at 4.35%, with debt service paid from your company's revenue share. Requires nonpassive treatment: a passive participant's loss produces $0 of current savings against wages or Roth conversions. Not tax advice.</p>
   </div>
 </section>
 
@@ -981,7 +981,7 @@ footer nav a:hover{color:var(--ink)}
   /* ---------- placement calculator ---------- */
   var OFFICE = 0.50;
   var PRESETS = {
-    eboo:   {min:1250, max:1500, step:5,  price:1375, vol:43, cogs:300,  cost:350000,  down:50000,  rate:4, term:10, hint:'Typical EBOO treatment $1,250–$1,500. Equipment typically $300K–500K.'}
+    eboo:   {min:1250, max:1500, step:5,  price:1375, vol:43, cogs:300,  cost:350000,  down:50000,  rate:4.35, term:15, hint:'Typical EBOO treatment $1,250–$1,500. Equipment typically $300K–500K.'}
   };
   var state = {eboo: Object.assign({}, PRESETS.eboo)}, cur = 'eboo';
   var ids = {price:'cPrice', vol:'cVol', cogs:'cCogs', cost:'cCost', down:'cDown', rate:'cRate', term:'cTerm'};
