@@ -629,7 +629,7 @@ footer nav a:hover{color:var(--ink)}
 <section class="block" id="calculator" style="padding-top:0">
   <div class="wrap">
     <h2 class="h2">Model a clinic's revenue <span>with your inputs.</span></h2>
-    <p class="sub">Revenue flows through cost of goods, then a 50% medical-office share and a 30% marketing allocation. Your company keeps 20% and pays debt service from it.</p>
+    <p class="sub">Revenue flows through cost of goods, then a 50% medical-office share. Your company keeps 50% and pays debt service from it.</p>
     <div class="tool">
       <div class="tabs">
         <span class="tab-ind" id="tabInd" aria-hidden="true"></span>
@@ -676,6 +676,60 @@ footer nav a:hover{color:var(--ink)}
         </div>
       </div>
       <div class="tool-foot"><p class="fine" style="margin:0">Hypothetical model for illustration only, not a projection, guarantee or offer. Year-one deduction equals 100% of cost basis, including the financed portion; whether it's usable depends on the §469, §465 and §461(l) rules below.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="calculator-tbi3" style="padding-top:0">
+  <div class="wrap">
+    <h2 class="h2">Model a TBi3<sup class="r">®</sup> placement <span>the personal-injury model.</span></h2>
+    <p class="sub">TBi3 runs on the personal-injury settlement model: each diagnostic is billed per case and paid from the settlement, no later than 24 months. The medical professional bills for their services; your company's equipment-and-marketing fee is the rest.</p>
+    <div class="tool">
+      <div class="tabs">
+        <span class="tab-ind" id="tabIndT" aria-hidden="true"></span>
+        <span class="tab" id="tab-tbi3" aria-selected="true" data-k="tbi3">TBi3 <small style="font-weight:400; opacity:.7">Personal injury</small></span>
+      </div>
+      <div class="tool-body" id="calcPanelT">
+        <div class="inputs">
+          <div class="field">
+            <label for="tCases">Diagnostic cases per month <output id="toCases" class="tnum">150</output></label>
+            <input type="range" id="tCases" min="100" max="200" step="5" value="150">
+            <div class="hint">Each unit captures ~100–200 cases a month. Roughly 3,000 accidents a month per 2.2M people.</div>
+          </div>
+          <div class="field">
+            <label for="tOwn">Your fee per case <output id="toOwn" class="tnum">$150</output></label>
+            <input type="range" id="tOwn" min="100" max="300" step="5" value="150">
+            <div class="hint" id="tOwnHint">Diagnostic billed at $1,000 a case. Medical professional bills $850; your equipment-and-marketing fee is $150.</div>
+          </div>
+          <details class="assume">
+            <summary>Case, cost and financing assumptions <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+            <div class="grid2">
+              <div class="num"><label for="tFee">Diagnostic billed / case ($)</label><input id="tFee" type="number" inputmode="numeric" min="0" step="50" value="1000"></div>
+              <div class="num"><label for="tMed">Medical professional / case</label><input id="tMed" type="text" value="$850" readonly tabindex="-1"></div>
+              <div class="num"><label for="tCost">Equipment cost ($)</label><input id="tCost" type="number" inputmode="numeric" min="0" step="25000" value="1000000"></div>
+              <div class="num"><label for="tDown">Down payment ($)</label><input id="tDown" type="number" inputmode="numeric" min="0" step="5000" value="125000"></div>
+              <div class="num"><label for="tRate">Interest rate (%)</label><input id="tRate" type="number" inputmode="decimal" min="0" max="20" step="0.25" value="4"></div>
+              <div class="num"><label for="tTerm">Term (years)</label><input id="tTerm" type="number" inputmode="numeric" min="1" max="25" step="1" value="10"></div>
+            </div>
+          </details>
+        </div>
+        <div class="results" aria-live="polite">
+          <div class="headline-num"><span class="v tnum" id="tOwner">$163,693</span><span class="u">your fee revenue per year at the mature run-rate, after debt service</span></div>
+          <div class="kpis">
+            <div class="kpi"><span>Your first-year deduction</span><b class="tnum" id="tBonus">$1,000,000</b></div>
+            <div class="kpi"><span>Your annual fee revenue</span><b class="tnum" id="tFeeY">$270,000</b></div>
+            <div class="kpi"><span>Break-even volume</span><b class="tnum" id="tBE">60 / mo</b></div>
+          </div>
+          <div class="wf-title"><span>Where each month's diagnostic billing goes</span><span id="tVol" class="tnum">at 150 cases a month</span></div>
+          <div class="wf" id="twf"></div>
+          <div class="legend"><span><i style="background:rgba(255,255,255,.82)"></i>Subtotal</span><span><i style="background:var(--red)"></i>Paid out</span><span><i style="background:var(--blue)"></i>Yours</span></div>
+          <details class="lines">
+            <summary>See every line item, monthly and annual <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+            <table><thead><tr><th scope="col">Line item</th><th scope="col">Monthly</th><th scope="col">Annual</th></tr></thead><tbody id="tLineItems"></tbody></table>
+          </details>
+        </div>
+      </div>
+      <div class="tool-foot"><p class="fine" style="margin:0">Hypothetical model for illustration only, not a projection, guarantee or offer. Your fee is paid on case settlement, no later than 24 months; year one carries roughly a 12-month deferral while cases settle (typically 4–12 months), so first-year collections lag the run-rate shown — while the first-year deduction still lands in full. Per-case diagnostic fees in referral settings are subject to the §469/§465/§461(l) rules and the Stark Law and Anti-Kickback Statute noted below.</p></div>
     </div>
   </div>
 </section>
@@ -782,6 +836,8 @@ footer nav a:hover{color:var(--ink)}
         <p>No, and the distinction matters. Marketed deals where passive investors acquire equipment chiefly to harvest depreciation are an IRS enforcement focus. This is an operating business: equipment acquired at retail market price in an arm's-length transaction, real staffing and billing, recourse financing, and a credible pre-tax profit objective. The tax treatment follows the economics, not the other way around.</p></details>
       <details><summary>Do I have to be involved day to day?<span class="pm" aria-hidden="true"></span></summary>
         <p>The strategy is built for people who materially participate, typically 100 to 500+ hours a year depending on which §469 test applies, with contemporaneous time logs. If you can't participate, expect passive treatment, which changes how the losses can be used. We cover this candidly in every consultation.</p></details>
+      <details><summary>How do I materially participate?<span class="pm" aria-hidden="true"></span></summary>
+        <p>To use the deduction against wages or business income, you have to materially participate in the clinic under one of the IRS's seven tests — in practice a real, regular and continuous role, generally 100 to 500+ hours a year depending on the test, documented with contemporaneous time logs. Owning the clinic's marketing and demand generation can be a genuine part of that role, and we help you build it and document it — much of it from the desktop — but it has to be real work and real hours, enough to clear the test, not a box to tick. We walk through exactly what that looks like for your facts on the first call.</p></details>
       <details><summary>What equipment qualifies for 100% bonus depreciation?<span class="pm" aria-hidden="true"></span></summary>
         <p>Medical equipment is generally 5-year MACRS property, well within §168(k)'s 20-year ceiling. Both the binding acquisition contract and the placed-in-service date must fall after January 19, 2025. Used or refurbished equipment qualifies if it's your first use and acquired arm's-length from an unrelated party.</p></details>
       <details><summary>What happens when the equipment is sold?<span class="pm" aria-hidden="true"></span></summary>
@@ -923,7 +979,7 @@ footer nav a:hover{color:var(--ink)}
   })();
 
   /* ---------- placement calculator ---------- */
-  var OFFICE = 0.50, MARKETING = 0.30;
+  var OFFICE = 0.50;
   var PRESETS = {
     eboo:   {min:1250, max:1500, step:5,  price:1375, vol:43, cogs:300,  cost:350000,  down:50000,  rate:4, term:10, hint:'Typical EBOO treatment $1,250–$1,500. Equipment typically $300K–500K.'}
   };
@@ -944,18 +1000,18 @@ footer nav a:hover{color:var(--ink)}
     var down = Math.min(Math.max(0, s.down), cost), rate = Math.max(0, s.rate), term = Math.max(1, s.term);
     var financed = cost - down, debtM = payment(financed, rate, term);
     var revM = price * vol, cogsM = cogs * vol, netM = revM - cogsM;
-    var offM = netM > 0 ? netM * OFFICE : 0, mktM = netM > 0 ? netM * MARKETING : 0;
-    var ownShM = netM - offM - mktM, ownerM = ownShM - debtM, margin = (price - cogs) * (1 - OFFICE - MARKETING);
+    var offM = netM > 0 ? netM * OFFICE : 0;
+    var ownShM = netM - offM, ownerM = ownShM - debtM, margin = (price - cogs) * (1 - OFFICE);
     $('oPrice').textContent = usd(price); $('oVol').textContent = vol; paint($('cPrice')); paint($('cVol'));
     $('cFin').value = usd(financed);
     var tw = instant ? function(el, n){ el.dataset.v = n; el.textContent = usd(n); } : setVal;
     tw($('rOwner'), ownerM * 12); tw($('rBonus'), cost); tw($('rRevY'), revM * 12);
     $('rBE').textContent = margin > 0 ? Math.ceil(debtM / margin) + ' / mo' : '—';
     $('wfVol').textContent = 'at ' + vol + ' treatments a month';
-    var rows = [['Treatment revenue', revM], ['− Cost of goods sold', -cogsM], ['Net profit (revenue − COGS)', netM], ['− Medical office share (50%)', -offM], ['− Marketing (30%)', -mktM], ['Your company\'s share (20%)', ownShM], ['− Debt service (P&I on ' + usd(financed) + ')', -debtM], ['Your company\'s cash flow', ownerM]];
-    $('lineItems').innerHTML = rows.map(function(r, i){ return '<tr' + (i === 2 || i === 5 || i === 7 ? ' class="strong"' : '') + '><td>' + r[0] + '</td><td>' + usd(r[1]) + '</td><td>' + usd(r[1] * 12) + '</td></tr>'; }).join('');
+    var rows = [['Treatment revenue', revM], ['− Cost of goods sold', -cogsM], ['Net profit (revenue − COGS)', netM], ['− Medical office share (50%)', -offM], ['Your company\'s share (50%)', ownShM], ['− Debt service (P&I on ' + usd(financed) + ')', -debtM], ['Your company\'s cash flow', ownerM]];
+    $('lineItems').innerHTML = rows.map(function(r, i){ return '<tr' + (i === 2 || i === 4 || i === 6 ? ' class="strong"' : '') + '><td>' + r[0] + '</td><td>' + usd(r[1]) + '</td><td>' + usd(r[1] * 12) + '</td></tr>'; }).join('');
     var cash = ownerM, max = Math.max(revM, 1);
-    var bars = [['Revenue', 0, revM, 'total', revM], ['COGS', netM, revM, 'down', -cogsM], ['Net profit', 0, netM, 'total', netM], ['Office 50%', netM - offM, netM, 'down', -offM], ['Marketing 30%', ownShM, netM - offM, 'down', -mktM], ['Your share 20%', 0, ownShM, 'total', ownShM], ['Debt service', Math.max(cash, 0), ownShM, 'down', -debtM], ['Your cash', 0, Math.abs(cash), cash < 0 ? 'final neg' : 'final', cash]];
+    var bars = [['Revenue', 0, revM, 'total', revM], ['COGS', netM, revM, 'down', -cogsM], ['Net profit', 0, netM, 'total', netM], ['Office 50%', netM - offM, netM, 'down', -offM], ['Your share 50%', 0, ownShM, 'total', ownShM], ['Debt service', Math.max(cash, 0), ownShM, 'down', -debtM], ['Your cash', 0, Math.abs(cash), cash < 0 ? 'final neg' : 'final', cash]];
     var wf = $('wf');
     if (wf.children.length !== bars.length) wf.innerHTML = bars.map(function(b){ return '<div class="wf-row"><span class="l">' + b[0] + '</span><span class="t"><span class="b"></span></span><span class="v"></span></div>'; }).join('');
     bars.forEach(function(b, i){
@@ -965,7 +1021,7 @@ footer nav a:hover{color:var(--ink)}
     });
   }
   Object.keys(ids).forEach(function(f){ $(ids[f]).addEventListener('input', function(){ calc(false); }); });
-  var tabs = [].slice.call(document.querySelectorAll('.tab')), ind = $('tabInd');
+  var tabs = [].slice.call(document.querySelectorAll('#calculator .tab')), ind = $('tabInd');
   function moveInd(t){ ind.style.width = t.offsetWidth + 'px'; ind.style.transform = 'translateX(' + (t.offsetLeft - 8) + 'px)'; }
   function selectTab(t, focus){
     tabs.forEach(function(x){ var on = x === t; x.setAttribute('aria-selected', on); x.tabIndex = on ? 0 : -1; });
@@ -1037,6 +1093,57 @@ footer nav a:hover{color:var(--ink)}
       .catch(function(){ btn.disabled = false; btn.firstChild.nodeValue = label; msg.className = 'form-msg err';
         msg.innerHTML = 'That didn\'t send. Please email <a href="mailto:chris@thetaxfirm.us">chris@thetaxfirm.us</a>, call <a href="tel:+17024982144">(702) 498-2144</a>, or <a href="https://calendly.com/chriscraig702/medical-device-tax-strategy" target="_blank" rel="noopener">book on the calendar</a>.'; });
   });
+})();
+</script>
+
+<script>
+/* ---------- TBi3 personal-injury calculator (self-contained, isolated from the EBOO tool) ---------- */
+(function(){
+  'use strict';
+  var $ = function(id){ return document.getElementById(id); };
+  var usd = function(n){ var a = Math.round(Math.abs(n)); return (n < 0 && a ? '−$' : '$') + a.toLocaleString('en-US'); };
+  function payment(P, rate, yrs){ if (P <= 0) return 0; var r = rate / 1200, n = yrs * 12; return r === 0 ? P / n : P * r / (1 - Math.pow(1 + r, -n)); }
+  function paint(r){ r.style.setProperty('--p', ((r.value - r.min) / (r.max - r.min) * 100) + '%'); }
+  var ids = {cases:'tCases', own:'tOwn', fee:'tFee', cost:'tCost', down:'tDown', rate:'tRate', term:'tTerm'};
+  function num(k){ var v = parseFloat($(ids[k]).value); return isNaN(v) ? 0 : v; }
+
+  function calc(){
+    var cases = Math.max(0, num('cases')), fee = Math.max(0, num('fee'));
+    var own = Math.min(Math.max(0, num('own')), fee), cost = Math.max(0, num('cost'));
+    var down = Math.min(Math.max(0, num('down')), cost), rate = Math.max(0, num('rate')), term = Math.max(1, num('term'));
+    var medPer = Math.max(0, fee - own), financed = cost - down, debtM = payment(financed, rate, term);
+    var billM = fee * cases, medM = medPer * cases, ownM = own * cases, cash = ownM - debtM;
+
+    $('toCases').textContent = cases; $('toOwn').textContent = usd(own);
+    paint($('tCases')); paint($('tOwn'));
+    $('tMed').value = usd(medPer);
+    $('tOwnHint').textContent = 'Diagnostic billed at ' + usd(fee) + ' a case. Medical professional bills ' + usd(medPer) + '; your equipment-and-marketing fee is ' + usd(own) + '.';
+    $('tOwner').textContent = usd(cash * 12);
+    $('tBonus').textContent = usd(cost);
+    $('tFeeY').textContent = usd(ownM * 12);
+    $('tBE').textContent = own > 0 ? Math.ceil(debtM / own) + ' / mo' : '—';
+    $('tVol').textContent = 'at ' + cases + ' cases a month';
+
+    var rows = [['Diagnostic billings (' + cases + ' × ' + usd(fee) + ')', billM], ['− Medical professional (' + usd(medPer) + '/case)', -medM], ['Your equipment & marketing fee (' + usd(own) + '/case)', ownM], ['− Debt service (P&I on ' + usd(financed) + ')', -debtM], ['Your cash flow (run-rate)', cash]];
+    $('tLineItems').innerHTML = rows.map(function(r, i){ return '<tr' + (i === 2 || i === 4 ? ' class="strong"' : '') + '><td>' + r[0] + '</td><td>' + usd(r[1]) + '</td><td>' + usd(r[1] * 12) + '</td></tr>'; }).join('');
+
+    var max = Math.max(billM, 1);
+    var bars = [['Billings', 0, billM, 'total', billM], ['Medical professional', ownM, billM, 'down', -medM], ['Your fee', 0, ownM, 'total', ownM], ['Debt service', Math.max(cash, 0), ownM, 'down', -debtM], ['Your cash', 0, Math.abs(cash), cash < 0 ? 'final neg' : 'final', cash]];
+    var wf = $('twf');
+    if (wf.children.length !== bars.length) wf.innerHTML = bars.map(function(b){ return '<div class="wf-row"><span class="l">' + b[0] + '</span><span class="t"><span class="b"></span></span><span class="v"></span></div>'; }).join('');
+    bars.forEach(function(b, i){
+      var row = wf.children[i], lo = Math.max(0, Math.min(b[1], b[2])), hi = Math.max(b[1], b[2]), bar = row.querySelector('.b');
+      row.className = 'wf-row ' + b[3]; bar.style.left = (lo / max * 100) + '%'; bar.style.width = ((hi - lo) / max * 100) + '%';
+      row.querySelector('.v').textContent = usd(b[4]);
+    });
+  }
+  Object.keys(ids).forEach(function(k){ var el = $(ids[k]); if (el) el.addEventListener('input', calc); });
+
+  var ind = $('tabIndT'), tab = $('tab-tbi3');
+  function moveInd(){ if (ind && tab){ ind.style.width = tab.offsetWidth + 'px'; ind.style.transform = 'translateX(' + (tab.offsetLeft - 8) + 'px)'; } }
+  window.addEventListener('resize', moveInd);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(moveInd);
+  moveInd(); calc();
 })();
 </script>
 </body>
