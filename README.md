@@ -38,7 +38,7 @@ The form posts to `/api/lead`, which sends the lead through your own Google Work
 |----------|---------|---------|
 | `SMTP_USER` | `marketing@thetaxfirm.us` | The Google Workspace mailbox that sends the notification |
 | `SMTP_PASS` | `abcd efgh ijkl mnop` (no spaces) | A Google **App Password** for that mailbox (see below) |
-| `LEAD_TO_EMAIL` | `chris@thetaxfirm.us` | Where leads land (optional; defaults to `SMTP_USER`) |
+| `LEAD_TO_EMAIL` | `chris@mhservicesllc.com` | Where leads land (optional; defaults to `SMTP_USER`) |
 
 **Creating the App Password (one-time):**
 1. The sending mailbox (e.g. `marketing@thetaxfirm.us`) must have **2-Step Verification** turned on — myaccount.google.com → Security → 2-Step Verification.
