@@ -48,6 +48,7 @@ const DO_NOT_COPY = new Set([
   'vercel.json',
   'README.md',
   'README-blog.md',
+  'build-blog.mjs',
   '.git',
   '.github',
   '.vercel',
@@ -59,7 +60,28 @@ const DO_NOT_COPY = new Set([
 // Used to make OG/canonical URLs absolute. Override with the SITE_URL env var.
 const SITE_URL = (process.env.SITE_URL || 'https://mddeductions.com').replace(/\/$/, '');
 
+const SITE_NAME = 'MD Deductions';
+const HOME_MARKER = '<!--BLOG_LINKS-->';
+// Set when the homepage copy meaningfully changes; drives its sitemap lastmod.
+const HOME_LASTMOD = '2026-11-14';
+const ORG = {
+  '@type': 'Organization',
+  '@id': `${SITE_URL}/#organization`,
+  name: 'MH Services LLC',
+  alternateName: ['MD Deductions', 'Medical Device Tax Deductions'],
+  url: `${SITE_URL}/`,
+};
+
 marked.setOptions({ gfm: true, breaks: false });
+
+// Serialize structured data safely for an inline <script> block.
+function ldScript(data) {
+  return `<script type="application/ld+json">${JSON.stringify(data).replace(/</g, '\\u003c')}</script>`;
+}
+
+function absUrl(p) {
+  return p ? (p.startsWith('http') ? p : SITE_URL + p) : '';
+}
 
 function esc(value = '') {
   return String(value)
@@ -115,7 +137,7 @@ function readPosts() {
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 }
 
-function head({ title, description, url, image, type }) {
+function head({ title, description, url, image, type, jsonLd = [], published = '' }) {
   const abs = image ? (image.startsWith('http') ? image : SITE_URL + image) : '';
   return `<!doctype html>
 <html lang="en">
@@ -125,7 +147,11 @@ function head({ title, description, url, image, type }) {
 <title>${esc(title)}</title>
 <meta name="description" content="${esc(description)}">
 <link rel="canonical" href="${esc(url)}">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:site_name" content="${esc(SITE_NAME)}">
 <meta property="og:type" content="${type}">
+${published ? `<meta property="article:published_time" content="${esc(published)}">` : ''}
 <meta property="og:title" content="${esc(title)}">
 <meta property="og:description" content="${esc(description)}">
 <meta property="og:url" content="${esc(url)}">
@@ -138,19 +164,20 @@ ${abs ? `<meta name="twitter:image" content="${esc(abs)}">` : ''}
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=Fraunces:opsz,wght@9..144,400;9..144,500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/blog/blog.css">
+${jsonLd.map(ldScript).join('\n')}
 </head>`;
 }
 
 const chrome = {
-  header: `<header class="site"><a class="brand" href="/">mddeductions</a><a class="navlink" href="/blog">Blog</a></header>`,
-  footer: `<footer class="foot"><span>&copy; ${new Date().getFullYear()} mddeductions.com</span><a href="/">Back to site &rarr;</a></footer>`,
+  header: `<header class="site"><a class="brand" href="/" aria-label="MD Deductions, medical device tax deductions home">MD Deductions</a><nav class="sitenav" aria-label="Primary"><a class="navlink" href="/blog">Articles</a><a class="navlink" href="/#calculator">Calculator</a><a class="navlink" href="/#contact">Book a call</a></nav></header>`,
+  footer: `<footer class="foot"><span>&copy; ${new Date().getFullYear()} MH Services LLC &middot; mddeductions.com. General information, not tax, legal or investment advice.</span><a href="/">Medical device tax deductions &rarr;</a></footer>`,
 };
 
 function renderIndex(posts) {
   const cards = posts
     .map(
       (p) => `<li class="card"><a class="card-link" href="/blog/${esc(p.slug)}">
-  <div class="cover-frame">${p.image ? `<img class="cover" src="${esc(p.image)}" alt="" loading="lazy">` : ''}</div>
+  <div class="cover-frame">${p.image ? `<img class="cover" src="${esc(p.image)}" alt="" loading="lazy" width="1200" height="750">` : ''}</div>
   <div class="card-body">
     <time class="date" datetime="${esc(isoDate(p.date))}">${esc(formatDate(p.date))}</time>
     <h2 class="card-title">${esc(p.title)}</h2>
@@ -161,19 +188,36 @@ function renderIndex(posts) {
     .join('\n');
 
   return `${head({
-    title: 'Blog — mddeductions.com',
-    description: 'Articles and updates from mddeductions.com.',
+    title: 'Medical Equipment Tax Deduction Articles | MD Deductions',
+    description:
+      'Plain-language guides to Section 168(k) bonus depreciation, Section 179, material participation and passive loss rules for medical equipment businesses.',
     url: `${SITE_URL}/blog`,
-    image: '',
+    image: '/assets/hero.jpg',
     type: 'website',
+    jsonLd: [
+      {
+        '@context': 'https://schema.org',
+        '@type': 'Blog',
+        '@id': `${SITE_URL}/blog#blog`,
+        name: 'MD Deductions articles',
+        url: `${SITE_URL}/blog`,
+        publisher: ORG,
+        blogPost: posts.map((p) => ({
+          '@type': 'BlogPosting',
+          headline: p.title,
+          url: `${SITE_URL}/blog/${p.slug}`,
+          datePublished: isoDate(p.date),
+        })),
+      },
+      breadcrumb([['Home', `${SITE_URL}/`], ['Articles', `${SITE_URL}/blog`]]),
+    ],
   })}
 <body>
 ${chrome.header}
 <main class="page">
   <header class="masthead">
-    <p class="eyebrow">The Blog</p>
-    <h1 class="page-title">Writing &amp; updates</h1>
-    <p class="lede">Notes, explainers, and announcements — newest first.</p>
+    <h1 class="page-title">Medical equipment tax deduction guides</h1>
+    <p class="lede">Bonus depreciation, Section 179, material participation and the loss limits that decide whether a deduction is usable. Newest first.</p>
   </header>
   ${
     posts.length === 0
@@ -186,17 +230,61 @@ ${chrome.footer}
 </html>`;
 }
 
-function renderPost(post) {
+function breadcrumb(items) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: items.map(([name, item], i) => ({ '@type': 'ListItem', position: i + 1, name, item })),
+  };
+}
+
+// Up to three other posts, preferring ones that share a tag, so every article
+// links to its neighbours instead of being a dead end.
+function relatedPosts(post, posts) {
+  const tags = new Set(post.tags);
+  return posts
+    .filter((p) => p.slug !== post.slug)
+    .map((p, i) => ({ p, i, score: p.tags.filter((t) => tags.has(t)).length }))
+    .sort((a, b) => b.score - a.score || a.i - b.i)
+    .slice(0, 3)
+    .map((x) => x.p);
+}
+
+function renderPost(post, posts = []) {
+  const related = relatedPosts(post, posts);
   const tags = post.tags.length
     ? `<ul class="tags">${post.tags.map((t) => `<li class="tag">${esc(t)}</li>`).join('')}</ul>`
     : '';
 
   return `${head({
-    title: `${post.title} — mddeductions.com`,
+    // Keep search titles under ~60 characters: only add the brand when it fits.
+    title: post.title.length <= 45 ? `${post.title} | MD Deductions` : post.title,
     description: post.description,
     url: `${SITE_URL}/blog/${post.slug}`,
     image: post.image,
     type: 'article',
+    published: isoDate(post.date),
+    jsonLd: [
+      {
+        '@context': 'https://schema.org',
+        '@type': 'BlogPosting',
+        '@id': `${SITE_URL}/blog/${post.slug}#article`,
+        mainEntityOfPage: `${SITE_URL}/blog/${post.slug}`,
+        headline: post.title,
+        description: post.description,
+        ...(post.image ? { image: [absUrl(post.image)] } : {}),
+        datePublished: isoDate(post.date),
+        dateModified: isoDate(post.date),
+        author: ORG,
+        publisher: ORG,
+        ...(post.tags.length ? { keywords: post.tags.join(', ') } : {}),
+      },
+      breadcrumb([
+        ['Home', `${SITE_URL}/`],
+        ['Articles', `${SITE_URL}/blog`],
+        [post.title, `${SITE_URL}/blog/${post.slug}`],
+      ]),
+    ],
   })}
 <body>
 ${chrome.header}
@@ -213,17 +301,90 @@ ${chrome.header}
     </header>
     ${
       post.image
-        ? `<div class="hero-frame"><img class="hero" src="${esc(post.image)}" alt="${esc(post.title)}"></div>`
+        ? `<div class="hero-frame"><img class="hero" src="${esc(post.image)}" alt="${esc(post.title)}" width="1600" height="900" fetchpriority="high"></div>`
         : ''
     }
     <div class="prose">
 ${post.bodyHtml}
     </div>
+    <aside class="next" aria-label="Next steps">
+      <p class="next-h">Run your own numbers</p>
+      <p>Model clinic revenue and the first-year deduction with the <a href="/#calculator">medical equipment depreciation calculator</a>, or <a href="/#contact">book a strategy session</a> to see whether it fits your facts.</p>
+    </aside>
+    ${
+      related.length
+        ? `<nav class="related" aria-label="Related articles"><p class="next-h">Related articles</p><ul>${related
+            .map((r) => `<li><a href="/blog/${esc(r.slug)}">${esc(r.title)}</a></li>`)
+            .join('')}</ul></nav>`
+        : ''
+    }
   </article>
 </main>
 ${chrome.footer}
 </body>
 </html>`;
+}
+
+function day(value) {
+  return isoDate(value).slice(0, 10);
+}
+
+// Full sitemap: homepage, article index and every article, regenerated on each
+// build so newly published posts are discoverable without a manual edit.
+function renderSitemap(posts) {
+  const newest = posts.length ? day(posts[0].date) : '';
+  const homeMod = day(fs.statSync(path.join(ROOT, 'index.html')).mtime);
+  const latest = [newest, HOME_LASTMOD || homeMod].filter(Boolean).sort().pop();
+  const urls = [
+    { loc: `${SITE_URL}/`, lastmod: HOME_LASTMOD || latest },
+    { loc: `${SITE_URL}/blog`, lastmod: newest || latest },
+    ...posts.map((p) => ({ loc: `${SITE_URL}/blog/${p.slug}`, lastmod: day(p.date) })),
+  ];
+  return `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${urls
+  .map((u) => `  <url>\n    <loc>${esc(u.loc)}</loc>${u.lastmod ? `\n    <lastmod>${u.lastmod}</lastmod>` : ''}\n  </url>`)
+  .join('\n')}
+</urlset>
+`;
+}
+
+// llms.txt: a plain index of the site for AI assistants and answer engines.
+function renderLlms(posts) {
+  return `# MD Deductions (mddeductions.com)
+
+> Medical Device Tax Deductions, offered through MH Services LLC. The site explains how entrepreneurs and high W-2 earners can use first-year bonus depreciation under IRC Section 168(k) by building out operating clinics with medical equipment, and the rules (material participation, at-risk, excess business loss, recapture) that decide whether the deduction is usable. General information only, not tax, legal or investment advice.
+
+## Main pages
+
+- [Medical device tax deductions](${SITE_URL}/): overview, clinic revenue and tax savings calculators, the rules, FAQ, disclosures
+- [Articles](${SITE_URL}/blog): guides to depreciation and loss-limit rules for medical equipment businesses
+
+## Articles
+
+${posts.map((p) => `- [${p.title}](${SITE_URL}/blog/${p.slug}): ${p.description}`).join('\n')}
+
+## Contact
+
+- MH Services LLC, chris@mhservicesllc.com, (702) 498-2144
+`;
+}
+
+// The homepage's journal section is filled in by a third-party script, so the
+// HTML itself carried no links to the articles. Replace the marker in the
+// served homepage with a plain, crawlable list of every article.
+function injectHomeLinks(posts) {
+  const file = path.join(WEB_ROOT, 'index.html');
+  if (!fs.existsSync(file)) return;
+  const html = fs.readFileSync(file, 'utf8');
+  if (!html.includes(HOME_MARKER)) return;
+  const list = posts.length
+    ? `<div class="all"><p class="all-h">All articles</p><ol>${posts
+        .map((p) => `<li><a href="/blog/${esc(p.slug)}">${esc(p.title)}</a></li>`)
+        .join('')}</ol><p class="all-more"><a href="/blog">Browse the article index</a></p></div>`
+    : '';
+  // Only rewrite the copy in public/; never modify the root source file.
+  if (WEB_ROOT === PUBLIC_DIR) fs.writeFileSync(file, html.replace(HOME_MARKER, list));
 }
 
 function writeFile(filePath, contents) {
@@ -260,8 +421,12 @@ function main() {
   writeFile(path.join(OUT_DIR, 'blog.css'), STYLES);
   writeFile(path.join(OUT_DIR, 'index.html'), renderIndex(posts));
   for (const post of posts) {
-    writeFile(path.join(OUT_DIR, post.slug, 'index.html'), renderPost(post));
+    writeFile(path.join(OUT_DIR, post.slug, 'index.html'), renderPost(post, posts));
   }
+
+  writeFile(path.join(WEB_ROOT, 'sitemap.xml'), renderSitemap(posts));
+  writeFile(path.join(WEB_ROOT, 'llms.txt'), renderLlms(posts));
+  injectHomeLinks(posts);
 
   const rel = path.relative(ROOT, OUT_DIR) || '.';
   if (copied > 0) {
@@ -285,8 +450,8 @@ a{color:inherit}
 .site{display:flex;align-items:center;gap:1.5rem;max-width:1140px;margin:0 auto;
   padding:1.25rem clamp(1.25rem,5vw,2.5rem);border-bottom:1px solid var(--line)}
 .brand{font-family:var(--display);font-weight:500;font-size:1.2rem;letter-spacing:-.01em;text-decoration:none}
-.navlink{font-size:.85rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
-  color:var(--ink-faint);text-decoration:none;margin-left:auto}
+.sitenav{display:flex;flex-wrap:wrap;gap:.4rem 1.4rem;margin-left:auto}
+.navlink{font-size:.9rem;font-weight:600;color:var(--ink-soft);text-decoration:none}
 .navlink:hover{color:var(--accent)}
 
 .page{max-width:1140px;margin:0 auto;padding:clamp(2.5rem,6vw,4.5rem) clamp(1.25rem,5vw,2.5rem) 5rem}
@@ -341,6 +506,13 @@ a{color:inherit}
 .prose table{width:100%;border-collapse:collapse;margin:1.6rem 0;font-size:.96rem}
 .prose th,.prose td{border:1px solid var(--line);padding:.6rem .8rem;text-align:left}
 .prose th{background:#f7f7f5;font-weight:600}
+
+.next,.related{margin-top:2.75rem;padding-top:1.75rem;border-top:1px solid var(--line);font-size:1.02rem;line-height:1.65;color:var(--ink-soft)}
+.next-h{margin:0 0 .6rem;font-family:var(--display);font-weight:500;font-size:1.35rem;line-height:1.25;color:var(--ink)}
+.next p{margin:0}
+.next a,.related a{color:var(--accent);text-decoration:underline;text-decoration-thickness:1.5px;text-underline-offset:2px}
+.related ul{margin:0;padding-left:1.2rem}
+.related li{margin:.45rem 0}
 
 .foot{display:flex;flex-wrap:wrap;gap:.75rem 1.5rem;justify-content:space-between;
   max-width:1140px;margin:0 auto;padding:2rem clamp(1.25rem,5vw,2.5rem);
